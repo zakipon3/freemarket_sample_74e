@@ -4,7 +4,7 @@ lock "~> 3.14.0"
 
 # 自身のアプリ名、リポジトリ名を記述
 set :application, "freemarket_sample_74e"
-set :repo_url, "git@example.com:zakipon3/freemarket_sample_74e.git"
+set :repo_url, "git@github.com:zakipon3/freemarket_sample_74e.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
