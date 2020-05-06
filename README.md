@@ -35,7 +35,7 @@ Things you may want to cover:
 |birth_year|string|null: false|
 |birth_month|string|null: false|
 |birth_day|string|null: false|
-|email|string|null: false|
+|email|string|null: false, unique: true|
 |password|string|null: false|
 
 ### Association
