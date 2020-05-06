@@ -55,7 +55,7 @@ Things you may want to cover:
 |city|string|null: false|
 |house_number|string|null: false|
 |building|string|null: false|
-|tel_number|string|null: false, unique: true|
+|tel_number|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
