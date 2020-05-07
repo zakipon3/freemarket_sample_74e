@@ -22,7 +22,7 @@
 
   &__main{
     background-color: white;
-    width: 500px;
+    width: 700px;
     margin: 0 auto;
     padding: 20px;
     &__head{
@@ -39,9 +39,8 @@
       
     }
     &__title{
-      margin: 0 auto;
-      width: 300px;
-      // font-weight: bold;
+      margin: 20px auto;
+      width: 310px;
       .require{
         background-color: #3CCACE;
         color: white;
@@ -66,7 +65,4 @@
       cursor: pointer;
     }
    }
-
-
-
 }
