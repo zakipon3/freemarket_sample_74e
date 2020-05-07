@@ -34,7 +34,8 @@
     a {
       color: #3CCACE;
       text-decoration: none;
-      margin-left: 120px;
+      margin: 0 auto;
+      margin-left: 230px;
       font-size: 20px;
       
     }
@@ -60,9 +61,11 @@
       width: 300px;
       height: 45px;
       text-align: center;
+      line-height: 45px;
       margin: 10px auto;
       display: block;
       cursor: pointer;
+      font-size: 20px;
     }
    }
 }

@@ -34,5 +34,5 @@
       %input{class: "new_session-wrapper__main__text", placeholder: "例）スカイオ15F"}
     .new_session-wrapper__main__caution
       ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
-      %input{type: "submit",class: "new_session-wrapper__main__btn", value: "次へ進む"}
-    
+      
+      = link_to "次へ進む", touroku_users_path, class: 'new_session-wrapper__main__btn'
