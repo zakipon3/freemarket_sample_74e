@@ -54,8 +54,8 @@ Things you may want to cover:
 |prefecture_id|integer|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
-|building|string|null: false|
-|tel_number|string|null: false|
+|building|string||
+|tel_number|string||
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -66,7 +66,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |price|integer|null: false|
-|explanation|string|null: false|
+|explanation|text|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |size|string||
 |brand_name|string||
