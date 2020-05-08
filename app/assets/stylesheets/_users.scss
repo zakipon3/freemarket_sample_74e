@@ -7,10 +7,16 @@
   min-height: 100vh;
   padding: 30px 0;
   font-size: 15px;
+  &__footer{
+    margin-top: 50px;
+    text-align: center;
+
+  }
   &__logo{
     text-align: center;
     margin-bottom: 20px;
     font-size: 20px;
+
     &__text{
       font-weight: bold;
     }
@@ -27,9 +33,13 @@
     padding: 20px;
     &__head{
       text-align: center;
-      font-size: 30px;
-      margin: 10px auto;
+      font-size: 23px;
+      margin: 0px auto;
+      color:rgb(51, 51, 51);
+
+      padding: 30px;
       font-weight: bold;
+      border-bottom: 1px solid #eee;
     }
     a {
       color: #3CCACE;
@@ -40,6 +50,7 @@
       
     }
     &__title{
+      
       margin: 20px auto;
       width: 310px;
       .require{
