@@ -1,0 +1,73 @@
+.new_session-wrapper
+  .new_session-wrapper__logo
+    = link_to root_path do
+      = image_tag src="/assets/images/logo/logo.png", size: "50x50"
+      %span{class: "new_session-wrapper__logo__text"}
+      
+    %span{class: "new_session-wrapper__logo__title1"}
+      会員情報
+    %span{class: "new_session-wrapper__logo__title1"}
+      住所情報
+    %span{class: "new_session-wrapper__logo__title1"}
+      登録完了
+  .new_session-wrapper__main
+    .new_session-wrapper__main__head
+      会員情報
+  
+    .new_session-wrapper__main__title
+      ニックネーム
+      %span{class: "require"} 必須
+      %input{class: "new_session-wrapper__main__text", placeholder: "例)フリマ太郎"}
+    .new_session-wrapper__main__title
+      メールアドレス
+      %span{class: "require"} 必須
+      %input{class: "new_session-wrapper__main__text", placeholder: "PC・携帯どちらでも可"}
+    .new_session-wrapper__main__title
+      パスワード
+      %span{class: "require"} 必須
+      %input{class: "new_session-wrapper__main__text", placeholder: "7文字以上、英字数字両方を含むこと"}
+    .new_session-wrapper__main__title
+      パスワード(確認)
+      %span{class: "require"} 必須
+      %input{class: "new_session-wrapper__main__text", placeholder: "7文字以上、英字数字両方を含むこと"}
+    .new_session-wrapper__main__title
+      お名前(全角)
+      %span{class: "require"} 必須
+      .flexbox
+        %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)山田"}
+        %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)彩"}
+    .new_session-wrapper__main__title
+      お名前カナ(全角)
+      %span{class: "require"} 必須
+      .flexbox
+        %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)ヤマダ"}
+        %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)アヤ"}
+    .new_session-wrapper__main__title
+      生年月日
+      %span{class: "require"} 必須
+      .flexbox
+        %select{class: "new_session-wrapper__main__select three-select"}
+          %option{value: "0"} --
+          %option{value: "1"} 選択肢1
+          %option{value: "2"} 選択肢2
+          %option{value: "3"} 選択肢3
+        年
+        %select{class: "new_session-wrapper__main__select three-select"}
+          %option{value: "0"} --
+          %option{value: "1"} 選択肢1
+          %option{value: "2"} 選択肢2
+          %option{value: "3"} 選択肢3
+        月
+        %select{class: "new_session-wrapper__main__select three-select"}
+          %option{value: "0"} --
+          %option{value: "1"} 選択肢1
+          %option{value: "2"} 選択肢2
+          %option{value: "3"} 選択肢3
+        日
+    .new_session-wrapper__main__title
+      電話番号
+      %span{class: "require"} 必須
+      %input{class: "new_session-wrapper__main__text", placeholder: "ハイフンなし10~11桁"}
+    .new_session-wrapper__main__caution
+      ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
+      %input{type: "submit",class: "new_session-wrapper__main__btn", value: "次へ進む"}
