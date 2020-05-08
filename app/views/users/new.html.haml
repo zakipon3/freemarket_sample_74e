@@ -1,7 +1,9 @@
 .new_session-wrapper
   .new_session-wrapper__logo
-    = link_to root_path do
-      = image_tag src="/assets/material/logo/logo.png", size: "300x70"
+    .header
+      = link_to  do
+        = image_tag "/assets/logo/logo.png", alt: "test", height: "49", width: "180", class:"header__logo"
+
       %span{class: "new_session-wrapper__logo__text"}
     
   .new_session-wrapper__main
@@ -36,5 +38,8 @@
       ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
       = link_to "次へ進む", touroku_users_path, class: 'new_session-wrapper__main__btn'
   .new_session-wrapper__footer
-    = image_tag src="/assets/material/logo/logo-white.png", size: "200x50"
+    .footer
+      = link_to  do
+        = image_tag "/assets/logo/logo.png", alt: "test", height: '49', width: '180', class:'header__logo'
+
     %span{class: "new_session-wrapper__logo__text"}
