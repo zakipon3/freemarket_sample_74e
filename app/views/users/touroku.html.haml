@@ -1,18 +1,10 @@
 .new_session-wrapper
   .new_session-wrapper__logo
-    = link_to  do
-      = image_tag "/assets/logo/logo.png", alt: "test", height: "49", width: "180", class:"header__logo"
-      %span{class: "new_session-wrapper__logo__text"}
+    = render "devise/sessions/header"
     
   .new_session-wrapper__main
     .new_session-wrapper__main__head
       登録が完了しました
     =link_to root_path, class:"new_session-wrapper__main__btn" do 
       トップページに戻る
-  .new_session-wrapper__footer
-    .footer
-      = link_to  do
-        = image_tag "/assets/logo/logo.png", alt: "test", height: '49', width: '180', class:'header__logo'
-
-    %span{class: "new_session-wrapper__logo__text"}
-              
+  = render "devise/sessions/footer"

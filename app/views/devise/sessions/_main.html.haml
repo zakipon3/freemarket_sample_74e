@@ -2,11 +2,12 @@
   .login__panel
     .login__panel__no-account
       %p アカウントをお持ちでない方はこちら
-      - if devise_mapping.registerable? && controller_name != 'registrations'
+      - if devise_mapping.registerable? && controller_name != "registrations"
         = link_to "新規会員登録", new_registration_path(resource_name)
-    .login__panel__account-link
-      .fb-login-button
-      .gl-login-button
+    -# アカウント連携 追加実装時に開放
+    -# .login__panel__account-link
+    -#   .fb-login-button"
+    -#   .gl-login-button
     .login__panel__form
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .mail-field
