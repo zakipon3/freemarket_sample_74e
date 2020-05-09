@@ -6,7 +6,19 @@
     
   .new_session-wrapper__main
     .new_session-wrapper__main__head
-      住所情報
+      発送元・送り先住所情報
+    .new_session-wrapper__main__title
+      お名前(全角)
+      %span{class: "require"} 必須
+      .flexbox
+        %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)山田"}
+        %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)彩"}
+    .new_session-wrapper__main__title
+      お名前カナ(全角)
+      %span{class: "require"} 必須
+      .flexbox
+        %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)ヤマダ"}
+        %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)アヤ"}
     .new_session-wrapper__main__title
       郵便番号
       %span{class: "require"} 必須
@@ -30,8 +42,12 @@
       %input{class: "new_session-wrapper__main__text", placeholder: "例）難波5-1"}
     .new_session-wrapper__main__title
       建物名
-      %span{class: "require"} 任意
+      %span{class: "any"} 任意
       %input{class: "new_session-wrapper__main__text", placeholder: "例）スカイオ15F"}
+    .new_session-wrapper__main__title
+      電話番号
+      %span{class: "any"} 任意
+      %input{class: "new_session-wrapper__main__text", placeholder: "ハイフンなし10~11桁"}
     .new_session-wrapper__main__caution
       ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
       = link_to "次へ進む", touroku_users_path, class: 'new_session-wrapper__main__btn'
