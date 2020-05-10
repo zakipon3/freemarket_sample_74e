@@ -1,9 +1,7 @@
 .new_session-wrapper
   .new_session-wrapper__logo   
-    = link_to  do
-      = image_tag "/assets/logo/logo.png", alt: "test", height: "49", width: "180", class:"header__logo"
-      %span{class: "new_session-wrapper__logo__text"}
-    
+    = render "devise/sessions/header"
+
   .new_session-wrapper__main
     .new_session-wrapper__main__head
       発送元・送り先住所情報
