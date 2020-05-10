@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+
+@mixin box-format {
+  padding: 40px;
+  border-bottom: 2px solid #f8f8f8;
+}
+
+@mixin textbox-format {
+  height: 40px;
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+@mixin selectbox-format {
+  height: 40px;
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+
+.exhibit {
+  background: #f8f8f8;
+  font-size: 14px;
+  &__wrapper {
+    background: #fff;
+    width: 60%;
+    margin: auto;
+    &__itemimage {
+      @include box-format();
+      &__text {
+        margin-top: 16px;
+        line-height: 1.4em;
+      }
+      &__imagearea {
+        height: 112px;
+        margin: 16px auto;
+        background-color: #eee;
+        border: 1px dashed #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        text-align: center;
+        position: relative;
+        .fa-camera {
+          position: absolute;
+          top: 40px;
+          font-size: 20px;
+        }
+        &__text {
+          font-size: 10px;
+          padding-top: 40px;
+        }
+      }
+    }
+    &__itemname {
+      @include box-format();
+      &__textbox {
+        @include textbox-format();
+      }
+      &__textarea {
+        width: 100%;
+        height: 140px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        background-color: #fff;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    }
+    &__itemdetail {
+      @include box-format();
+      &__textbox {
+        @include textbox-format();
+      }
+      &__selectbox {
+        @include selectbox-format();
+      }
+    }
+    &__itemdelivery {
+      @include box-format();
+      &__selectbox {
+        @include selectbox-format();
+      }
+    }
+    &__itemprice {
+      @include box-format();
+      &__textbox {
+        @include textbox-format();
+      }
+      &__area {
+        display: flex;
+        &__left {
+          width: 50%;
+          height: 40px;
+          line-height: 40px;
+        }
+        &__right {
+          width: 50%;
+          display: flex;
+          align-items: center;
+            &__textbox {
+            height: 40px;
+            width: 100%;
+            margin-left: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: right;
+          }
+        }
+      }
+    }
+    &__submit {
+      text-align: center;
+      padding: 40px;
+      &__button {
+        background-color: #3CCACE;
+        color: #fff;
+        height: 50px;
+        width: 50%;
+        margin: 0 25% 30px;
+        border-radius: 4px;
+        line-height: 50px;
+        font-size: 17px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      &__return {
+        color: #3CCACE;
+        text-decoration: none;
+      }
+    }
+    &__coution {
+      font-size: 12px;
+      padding: 0px 40px 64px;
+    }
+  }
+}
+
+#label {
+  font-weight: 600;
+  line-height: 1.4em;
+}
+
+#headline {
+  font-weight: 600;
+  line-height: 1.4em;
+  color: #888;
+  display: block;
+  margin-bottom: 16px;
+}
+
+#require {
+  background-color: #3CCACE;
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+  padding: 1px 4px;
+  margin-left: 8px;
+}
+
+#optional {
+  background-color: #bfbfbf;
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+  padding: 1px 4px;
+  margin: 0;
+  margin-left: 8px;
+}
