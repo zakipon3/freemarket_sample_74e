@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+.exb-done {
+  background: #f8f8f8;
+  font-size: 14px;
+  height: calc(100vh - 288px);
+  &__wrapper {
+    background: #fff;
+    width: 60%;
+    margin: auto;
+    &__create {
+      padding: 40px;
+      text-align: center;
+      font-weight: 600;s
+      &__link {
+        color: #3CCACE;
+        text-decoration: none;
+      }
+    }
+  }
+}
