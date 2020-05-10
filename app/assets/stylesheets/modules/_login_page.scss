@@ -1,0 +1,113 @@
+@mixin input-format {
+  display: block;
+  height: 48px;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+@mixin button {
+  font-size: 14px;
+  height: 42px;
+  line-height: 42px;
+  margin-top: 8px;
+  color: white;
+  width: 100%;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+$background-color: rgb(245, 245, 245);
+
+.login-container {
+  height: 100vh;
+  width: 100%;
+  background-color: $background-color;
+  overflow: scroll;
+  .login-header {
+    height: 128px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-main {
+    display: flex;
+    justify-content: center;
+    .login__panel {
+      background-color: white;
+      width: 456px;
+      display: flex;
+      flex-direction: column;
+      &__no-account {
+        text-align: center;
+        padding: 40px 64px;
+        border-bottom: 1px solid #eee;
+        a {
+          text-align: center;
+          background-color: #0099e8;
+          @include button;
+        }
+      }
+      &__form {
+        padding: 24px 62px 32px;
+        .mail-field {
+          .input-text {
+            @include input-format;
+          }
+        }
+        .password-field {
+          margin-top: 24px;
+          .input-text {
+            @include input-format;
+          }
+        }
+        .btn {
+          @include button;
+          background-color: #3ccace;
+          height: 50px;
+          line-height: 50px;
+          margin-top: 24px;
+        }
+        a {
+          display: inline-block;
+          margin-top: 40px;
+          color: #0099e8;
+          &:hover {
+            text-decoration: underline;
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+
+  .login-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    .terms {
+      width: 400px;
+      padding: 40px 0 25px;
+      display: flex;
+      justify-content: space-around;
+      li {
+        display: inline-block;
+        font-size: 12px;
+        a {
+          color: #333333;
+        }
+      }
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+}
