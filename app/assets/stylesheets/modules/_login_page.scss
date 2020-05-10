@@ -55,10 +55,6 @@ $background-color: rgb(245, 245, 245);
           @include button;
         }
       }
-      // アカウント連携 追加実装時に開放
-      // &__account-link {
-      //   height: 180px;
-      // }
       &__form {
         padding: 24px 62px 32px;
         .mail-field {
