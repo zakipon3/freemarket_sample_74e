@@ -1,0 +1,10 @@
+.new_session-wrapper
+  .new_session-wrapper__logo
+    = render "devise/sessions/header"
+    
+  .new_session-wrapper__main
+    .new_session-wrapper__main__head
+      登録が完了しました
+    =link_to root_path, class:"new_session-wrapper__main__btn" do 
+      トップページに戻る
+  = render "devise/sessions/footer"
