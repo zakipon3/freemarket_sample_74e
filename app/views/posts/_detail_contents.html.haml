@@ -1,88 +1,82 @@
 .contents
   .contents__top
     %h1.name
-      アーノルドパーマーのキャスケット
+      product3
     .main
-      .image
-        = image_tag src='m29866801387_1.jpg', alt: "image",size:'300x300', id:'pic1', class:'image'
-        .small
-          = image_tag src='m29866801387_1.jpg', alt: "image",size:'60x60', id:'pic1', class:'image'
-          = image_tag src='m29866801387_2.jpg', alt: "image",size:'60x60', id:'pic2', class:'image'
-          = image_tag src='m29866801387_3.jpg', alt: "image",size:'60x60', id:'pic3', class:'image'
-          = image_tag src='m29866801387_4.jpg', alt: "image",size:'60x60', id:'pic4', class:'image'
-          = image_tag src='m29866801387_5.jpg', alt: "image",size:'60x60', id:'pic5', class:'image'
-          = image_tag src='m29866801387_6.jpg', alt: "image",size:'60x60', id:'pic6', class:'image'
-      %table.item
-        %tr
-          %th.menu
-            出品者
-          %td
-            = link_to "RiRi", "", class: "user"
-        %tr
-          %th
-            カテゴリー
-          %td
-            = link_to "レディース", "", class: "ladies"
-            %br
-            = link_to "＞帽子", "", class: "cap"
-            %br
-            = link_to "＞キャスケット", "", class: "casquette"
-        %tr
-          %th
-            ブランド
-          %td
-            = link_to "アーノルド パーマー", "", class: "arnold-palmer"
-        %tr
-          %th
-            商品の状態
-          %td
-            新品、未使用
-        %tr
-          %th
-            配送料の負担
-          %td
-            送料込み(出品者負担)
-        %tr
-          %th
-            配送の方法
-          %td
-            未定
-        %tr
-          %th
-            配送元地域
-          %td
-            愛知県
-        %tr
-          %th
-            発送日の目安
-          %td
-            2-3日で発送
+      %ul
+        %li
+          = image_tag src='a007.png', alt: "image",size:'560x346', id:'pic1', class:'main-image'
+          %ul
+            %li
+              = image_tag src='a007.png', alt: "image",size:'140x87', id:'pic1', class:'image'
+              = image_tag src='a001.png', alt: "image",size:'140x87', id:'pic2', class:'image'
+              = image_tag src='a003.png', alt: "image",size:'140x87', id:'pic3', class:'image'
     .fee
       %span.price
-        ¥3,100
-      %span.tax
-        (税込)
-      %span.postage
-        送料込み
-    .purchase
-      = link_to "購入画面に進む", "", class: "submit"
-    
+        ¥30000
+      .tax
+        (税込)送料込み
     .explanation
       %p
-        新品未使用ですが、タグはありません。
-        アーノルドパーマー好きな方、是非チェックなさってくださいませ。
-        サイズ表示はありませんが、少しだけサイズ調整できる紐がついています。
-        写真で確認ください。レディスの大人用です。
-        どうぞよろしくお願い致します。
+        親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の
+        二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をし
+        たと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を
+        出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降
+        りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰
+        って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+    %table.item
+      %tr
+        %th.menu
+          出品者
+        %td
+          hoge
+      %tr
+        %th
+          カテゴリー
+        %td
+          = link_to "ベビー・キッズ", "", class: "ladies"
+          %br
+          = link_to "ベビー服(男女兼用)~95cm", "", class: "cap"
+          %br
+          = link_to "アウター", "", class: "casquette"
+      %tr
+        %th
+          ブランド
+        %td
+          
+      %tr
+        %th
+          商品のサイズ
+        %td
+          
+      %tr
+        %th
+          商品の状態
+        %td
+          未使用に近い
+      %tr
+        %th
+          配送料の負担
+        %td
+          送料込み（出品者負担）
+      %tr
+        %th
+          配送元の地域
+        %td
+          = link_to "岩手県", "", class: "Prefectures"
+      %tr
+        %th
+          発送日の目安
+        %td
+          4-7日で発送
 
     .item-button
       .item-button-left
-        %button.like
-          ❤️ いいね! 2
-        = link_to "🏴 不適切な商品の報告", "", class: "report"
-
+        %button.favorite
+          = icon('fa', 'star', class: "contents__btn--icon")
+          お気に入り 0
       .item-button-right
-        = link_to "🔒 あんしん・あんぜんへの取り組み", "", class: "blank"
+        = link_to "🏴 不適切な商品の報告", "", class: "report"
 
 
   .contents__center
@@ -93,8 +87,10 @@
         相手のことを考え丁寧なコメントを心がけましょう。
         %br
         不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      .submit
-        = link_to "コメントする", "", class: "submit" 
+      %button.submit
+        = icon('fa', 'comment', class: "comment__btn--icon") 
+        コメントする
+
 
   %ul.other
     %li
@@ -104,4 +100,4 @@
 
   .contents__another
     %p
-      = link_to "ベビー・キッズをもっと見る", "", class: "item-box-head"
+      = link_to "ベビー・キッズをもっと見る", "", class: "another"

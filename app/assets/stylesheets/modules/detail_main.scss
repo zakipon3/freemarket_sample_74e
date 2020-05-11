@@ -22,9 +22,9 @@
   margin-top: 50px;
   &__top{
     background-color: white;
-    height: 950px;
     width: 700px;
     margin: 0 auto;
+    padding: 24px 40px 40px;
     
     .name{
       font-size: 24px;
@@ -32,74 +32,47 @@
       margin: 0 auto;
       text-align: center;
       word-wrap: break-word;
+      font-weight: bold;
     }
     .main{
       margin: 16px 0 0;
-      padding-left: 40px;
       display: flex;
-      .image{
-        display: block;
-        background-color: whitesmoke;
-        .small{
-          width: 300px;
-          line-height: 0px;
-          display: flex;
-          flex-wrap: wrap;
+      ul{
+        display: flex;
+        position: relative;
+        list-style: none;
+        li{
+          flex-direction: column;
+          width: 560px;
+          align-items: center;
+          margin: 0 auto;
+          .main-image{
+            object-fit: cover;
+            height: 346px;
+          }
+          ul{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+          li{
+          }
         }
       }
-      .item{
-        float: right;
-        max-width: 300px;
-        height: 420px;
-        margin: 0 auto;
-        font-size: 13px;
-        padding: 8px;
-        width: 100%;
-        border-collapse: collapse;
-        border: 1px solid #f5f5f5;
-        tr{
-          border: 1px solid #f5f5f5;
-          
-        }
-          th{
-            background-color: #f5f5f57e;
-            border: 1px solid #f5f5f5;
-            padding-left: 8px;
-          }
-          td{
-            padding-left: 8px;
-            
-            .item-user-ratings{
-              .icon{
-                display: flex;
-                .icon-good{
-                }
-                .icon-normal{
-                  padding-left: 8px;
-                }
-                .icon-bad{
-                  padding-left: 8px;
-                }
-              }
-            }
-          }
       }
     }
+
     .fee{
-      display: block;
+      display: flex;
+      margin: 24px 0 24px;
       text-align: center;
-      margin: 24px 0 0;
+      flex-direction: column;
       .price{
         margin: 0 16px 0 0;
-        font-weight: 600;
-        font-size: 50px;
+        font-weight: bold;
+        margin: 0 10px 0 0;
+        font-size: 46px;
       }
       .tax{
-        font-size: 10px;
-        top: 50px;
-      }
-      .postage{
-        display: inline-block;
         font-size: 16px;
       }
     }
@@ -119,31 +92,64 @@
       }
     }
     .explanation{
-      white-space: pre-wrap;
       font-size: 18px;
       text-align: center;
+      margin-bottom: 30px;
       p{
         text-align: left;
         display: inline-block;
       }
     }
-    .item-button{
-      margin: 16px 0 0;
-      
-      .item-button-left{
-        float: left;
-        padding: 0px 40px 40px;
-        .like{
-          border: 1px solid #ea352d;
-          background: none;
-          color: #ea352d;
-          padding: 8px 16px;
-          display: inline-block;
-          border-radius: 40px;
-          transition: all ease-out .3s;
+    .item{
+      margin: 0 auto;
+      font-size: 13px;
+      padding: 8px;
+      width: 100%;
+      height: 375px;
+      border-collapse: collapse;
+      border: 1px solid #f8f8f8;
+      margin-bottom: 20px;
+      tr{
+        border: 1px solid #f8f8f8;
+        
+      }
+        th{
+          width: 20%;
+          background-color: #eee;
+          font-weight: 400;
+          padding: 8px;
+          border: 1px solid #dedede;
+          font-size: 14px;
+          text-align: center;
         }
-        .report{
-          border: 1px solid #aaaaaa;
+        td{
+          width: 61%;
+          padding: 15px 15px;
+          border: 1px solid #dedede;
+          font-size: 14px;
+          a{
+            text-decoration: none;
+            color: #3CCACE;
+          }
+        }
+    }
+
+    .item-button{
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: space-between;
+      .item-button-left{
+
+        .favorite{
+          margin-top: 8px;
+          padding: 6px 10px;
+          border-radius: 40px;
+          color: #3CCACE;
+          border: 1px solid #ffb340;
+          font-size: 15px;
+        }
+      }
+      .item-button-right{
           text-decoration: none;
           display: inline-block;
           font-size: 12px;
@@ -153,14 +159,13 @@
           border-radius: 40px;
           transition: all ease-out .3s;
         }
-      }
-      .item-button-right{
-        padding: 8px 40px;
-        float: right;
-        .blank{
-          color: #0099e8;
-          text-decoration: none;
-        }
+      a{
+        padding: 6px 10px;
+        display: inline-block;
+        border-radius: 4px;
+        color: #333;
+        border: 1px solid #333;
+        text-decoration: none;
       }
     }
   }
@@ -191,17 +196,16 @@
         .submit{
           margin: 0 auto;
           margin-top: 30px;
-        a{
           text-align: center;
           display: block;
           height: 48px;
           width: 60%;
           background-color: #3CCACE;
+          border: 1px solid #3CCACE;
           line-height: 48px;
           color: white;
           font-size: 18px;
           border-radius: 100px;
-        }
       }
     }
   }
@@ -210,12 +214,12 @@
     width: 700px;
     list-style: none;
     .left{
-      color: #0099e8;
+      color: #3CCACE;
       text-decoration: none;
       float: left;
     }
     .right{
-      color: #0099e8;
+      color: #3CCACE;
       text-decoration: none;
       float: right;
     }
@@ -230,7 +234,9 @@
     p{
       font-size: 22px;
       font-weight: 600;
-      color: #0099e8;
+      .another{
+        color: #3CCACE;
+      }
     }
   }
 }
