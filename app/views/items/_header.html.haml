@@ -1,0 +1,54 @@
+.topHeader
+  .topheaderInner
+    .topmainHeader
+      .icon
+        = link_to (image_tag asset_path("material/logo/logo.png"), alt:"test"), root_path
+      .searchBox
+        %form{"accept-charset": "UTF-8", action: "#", method: "get"}
+          %input{name: "utf8", type: "hidden", value: "✓"}/
+          %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}/
+          %button{type: "submit"}
+            .searchBox__icon
+              =image_tag asset_path('material/icon/icon-search 1.png')
+          %input{name: "authenticity_token", type: "hidden", value: "k0ZPEbptaaDwDD8yF1Q3pvPnbXFHEMFLbA8zgiYouBXKwreit0eqBKjr8ixYwkbtm3pSrAMhhUwn6jXJR2I60Q=="}/
+      %ul.topresultLists
+    .nav
+      %ul.listsLeft
+        %li.listsLeft__item.listsLeft__item--first
+          = link_to "カテゴリー", root_path, class:"catBtn"
+          .tree.displayNone
+            %ul.categoryTree
+              %li.categoryTree--item
+                = link_to "レディース", root_path
+              %li.categoryTree--item
+                = link_to "メンズ", root_path
+              %li.categoryTree--item
+                = link_to "ベビー・キッズ", root_path
+              %li.categoryTree--item
+                = link_to "インテリア・住まい・小物", root_path
+              %li.categoryTree--item
+                = link_to "本・音楽・ゲーム", root_path
+              %li.categoryTree--item
+                = link_to "おもちゃ・ホビー・グッズ", root_path
+              %li.categoryTree--item
+                = link_to "コスメ・香水・美容", root_path
+              %li.categoryTree--item
+                = link_to "家電・スマホ・カメラ", root_path
+              %li.categoryTree--item
+                = link_to "スポーツ・レジャー", root_path
+              %li.categoryTree--item
+                = link_to "ハンドメイド", root_path
+              %li.categoryTree--item
+                = link_to "チケット", root_path
+              %li.categoryTree--item
+                = link_to "自動車・オートバイ", root_path
+              %li.categoryTree--item
+                = link_to "その他", root_path
+        %li.listsLeft__item
+          = link_to "ブランド", root_path, class:"brandBtn"
+          %ul.brandsPulldown.displayNone
+      %ul.listsRight
+        %li.listsRight__item.listsRight__item--login
+          %a{:href => "#"} ログイン
+        %li.listsRight__item.listsRight__item--new
+          %a{:href => "#"} 新規会員登録
