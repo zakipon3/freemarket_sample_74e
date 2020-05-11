@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  root 'items#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'messages/detail'
+  root to: 'posts#detail'
+  root "messages#detail"
 end
