@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
 
+  def get_exhibiting_status
+    return 1
+  end
+
   private
   def production?
     Rails.env.production?

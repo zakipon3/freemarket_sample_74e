@@ -1,7 +1,7 @@
 = render "/items/templates/subheader"
 
 .exhibit
-  = form_with url: "#" do |f|
+  = form_with model: @item, url: items_path, local: true do |f|
     .exhibit__wrapper
       .exhibit__wrapper__itemimage
         .exhibit__wrapper__itemimage__label
@@ -31,7 +31,7 @@
         .exhibit__wrapper__itemdetail__label
           %label#label カテゴリー
           %span#require 必須
-        = select_tag :category_id, options_for_select({レディース: 1}), include_blank: "正式にはカテゴリ機能実装で作成", class: "exhibit__wrapper__itemdetail__selectbox"
+        = f.select :category_id, options_for_select({レディース: 1}), include_blank: "正式にはカテゴリ機能実装で作成", class: "exhibit__wrapper__itemdetail__selectbox"
         .exhibit__wrapper__itemdetail__label
           %label#label サイズ
           %span#require 必須
@@ -43,7 +43,7 @@
         .exhibit__wrapper__itemdetail__label
           %label#label 商品の状態
           %span#require 必須
-        = select_tag :condition_id, options_for_select({新品、未使用: 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdetail__selectbox"
+        = f.select :condition_id, options_for_select({新品、未使用: 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdetail__selectbox"
 
       .exhibit__wrapper__itemdelivery
         .exhibit__wrapper__itemdelivery__label
@@ -51,15 +51,15 @@
         .exhibit__wrapper__itemdelivery__label
           %label#label 配送料の負担
           %span#require 必須
-        = select_tag :delivery_fee_id, options_for_select({送料込み（出品者負担）: 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdelivery__selectbox"
+        = f.select :delivery_fee_id, options_for_select({送料込み（出品者負担）: 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdelivery__selectbox"
         .exhibit__wrapper__itemdelivery__label
           %label#label 発送元の地域
           %span#require 必須
-        = select_tag :prefecture_id, options_for_select({北海道: 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdelivery__selectbox"
+        = f.select :prefecture_id, options_for_select({北海道: 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdelivery__selectbox"
         .exhibit__wrapper__itemdelivery__label
           %label#label 発送までの日数
           %span#require 必須
-        = select_tag :days_until_shipping_id, options_for_select({"1〜2日で発送": 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdelivery__selectbox"
+        = f.select :days_until_shipping_id, options_for_select({"1〜2日で発送": 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdelivery__selectbox"
 
       .exhibit__wrapper__itemprice
         .exhibit__wrapper__itemprice__label
