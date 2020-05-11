@@ -1,6 +1,12 @@
 @import "reset";
+
 @import "users";
+
+@import "modules/items_new";
+@import "modules/items_create";
+@import "modules/login_page";
+@import "modules/new-session_page";
+@import "templates/subheader";
+@import "templates/subfooter";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "modules/login_page";
-@import "modules/new-session_page"
