@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
 end
 
 group :development do
