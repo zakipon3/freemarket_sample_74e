@@ -51,7 +51,7 @@
         .exhibit__wrapper__itemdelivery__label
           %label#label 配送料の負担
           %span#require 必須
-        = f.select :delivery_fee_id, options_for_select({送料込み（出品者負担）: 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdelivery__selectbox"
+        = f.collection_select :delivery_fee_id, Deliveryfee.all, :id, :name, {prompt: "選択してください"}, class: "exhibit__wrapper__itemdelivery__selectbox"
         .exhibit__wrapper__itemdelivery__label
           %label#label 発送元の地域
           %span#require 必須
