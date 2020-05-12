@@ -1,12 +1,12 @@
-= form_with model: @user, url: user_registration_path do |f|
+= form_with model: @address, local: true do |f|
 
   .new_session-wrapper
     .new_session-wrapper__logo   
-      = render "devise/sessions/header"
-
+      = link_to  do
+        = image_tag "/assets/logo/logo.png", alt: "test", height: "49", width: "180", class:"header__logo"
+        %span{class: "new_session-wrapper__logo__text"}
+        
     .new_session-wrapper__main
-      .new_session-wrapper__main__head
-        発送元・送り先住所情報
       .new_session-wrapper__main__title
         お名前(全角)
         %span{class: "require"} 必須
@@ -19,6 +19,8 @@
         .flexbox
           = f.text_field :first_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)ヤマダ"}
           = f.text_field :first_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)アヤ"}
+      .new_session-wrapper__main__head
+        住所情報
       .new_session-wrapper__main__title
         郵便番号
         %span{class: "require"} 必須
@@ -42,12 +44,8 @@
         %input{class: "new_session-wrapper__main__text", placeholder: "例）難波5-1"}
       .new_session-wrapper__main__title
         建物名
-        %span{class: "any"} 任意
+        %span{class: "require"} 任意
         %input{class: "new_session-wrapper__main__text", placeholder: "例）スカイオ15F"}
-      .new_session-wrapper__main__title
-        電話番号
-        %span{class: "any"} 任意
-        %input{class: "new_session-wrapper__main__text", placeholder: "ハイフンなし10~11桁"}
       .new_session-wrapper__main__caution
         ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
         = link_to "次へ進む", touroku_users_path, class: 'new_session-wrapper__main__btn'

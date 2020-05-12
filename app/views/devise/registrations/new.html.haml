@@ -1,5 +1,6 @@
 = form_with model: @user, url: user_registration_path do |f|
-
+  
+  
   .new_session-wrapper
     .new_session-wrapper__logo
       = render "devise/sessions/header"
@@ -15,49 +16,33 @@
       .new_session-wrapper__main__title
         メールアドレス
         %span{class: "require"} 必須
-        %input{class: "new_session-wrapper__main__text", placeholder: "PC・携帯どちらでも可"}
+        = f.text_field :email, {class: "new_session-wrapper__main__text", placeholder: "PC・携帯どちらでも可"}
       .new_session-wrapper__main__title
         パスワード
         %span{class: "require"} 必須
-        %input{class: "new_session-wrapper__main__text", placeholder: "7文字以上、英字数字両方を含むこと"}
+        = f.password_field :password, {class: "new_session-wrapper__main__text", placeholder: "7文字以上、英字数字両方を含むこと"}
       .new_session-wrapper__main__title
         パスワード(確認)
         %span{class: "require"} 必須
-        %input{class: "new_session-wrapper__main__text", placeholder: "7文字以上、英字数字両方を含むこと"}
+        = f.password_field :password_confirmation, {class: "new_session-wrapper__main__text", placeholder: "7文字以上、英字数字両方を含むこと"}
       .new_session-wrapper__main__title
         お名前(全角)
         %span{class: "require"} 必須
         .flexbox
-          %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)山田"}
-          %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)彩"}
+          = f.text_field :first_name, {class: "new_session-wrapper__main__text text-half", placeholder: "例)山田"}
+          = f.text_field :last_name, {class: "new_session-wrapper__main__text text-half", placeholder: "例)彩"}
       .new_session-wrapper__main__title
         お名前カナ(全角)
         %span{class: "require"} 必須
         .flexbox
-          %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)ヤマダ"}
-          %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)アヤ"}
+          = f.text_field :first_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)ヤマダ"}
+          = f.text_field :first_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)アヤ"}
       .new_session-wrapper__main__title
         生年月日
         %span{class: "require"} 必須
-        .flexbox
-          %select{class: "new_session-wrapper__main__select three-select"}
-            %option{value: "0"} --
-            %option{value: "1"} 選択肢1
-            %option{value: "2"} 選択肢2
-            %option{value: "3"} 選択肢3
-          年
-          %select{class: "new_session-wrapper__main__select three-select"}
-            %option{value: "0"} --
-            %option{value: "1"} 選択肢1
-            %option{value: "2"} 選択肢2
-            %option{value: "3"} 選択肢3
-          月
-          %select{class: "new_session-wrapper__main__select three-select"}
-            %option{value: "0"} --
-            %option{value: "1"} 選択肢1
-            %option{value: "2"} 選択肢2
-            %option{value: "3"} 選択肢3
-          日
+        .new_session-wrapper__main__select
+          != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'new_session-wrapper__main__select three-select', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+          
       .new_session-wrapper__main__caution
         ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
         = link_to "次へ進む", new_user_path, class: 'new_session-wrapper__main__btn'
