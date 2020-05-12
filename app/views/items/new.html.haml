@@ -59,7 +59,7 @@
         .exhibit__wrapper__itemdelivery__label
           %label#label 発送までの日数
           %span#require 必須
-        = f.select :days_until_shipping_id, options_for_select({"1〜2日で発送": 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdelivery__selectbox"
+        = f.collection_select :days_until_shipping_id, Daysuntilshipping.all, :id, :name, {prompt: "選択してください"}, class: "exhibit__wrapper__itemdelivery__selectbox"
 
       .exhibit__wrapper__itemprice
         .exhibit__wrapper__itemprice__label
