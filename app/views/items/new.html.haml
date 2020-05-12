@@ -43,7 +43,7 @@
         .exhibit__wrapper__itemdetail__label
           %label#label 商品の状態
           %span#require 必須
-        = f.select :condition_id, options_for_select({新品、未使用: 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdetail__selectbox"
+        = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, class: "exhibit__wrapper__itemdetail__selectbox"
 
       .exhibit__wrapper__itemdelivery
         .exhibit__wrapper__itemdelivery__label
