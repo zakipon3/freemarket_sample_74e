@@ -55,7 +55,7 @@
         .exhibit__wrapper__itemdelivery__label
           %label#label 発送元の地域
           %span#require 必須
-        = f.select :prefecture_id, options_for_select({北海道: 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdelivery__selectbox"
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
         .exhibit__wrapper__itemdelivery__label
           %label#label 発送までの日数
           %span#require 必須

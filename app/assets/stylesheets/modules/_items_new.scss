@@ -92,7 +92,7 @@
     }
     &__itemdelivery {
       @include box-format();
-      &__selectbox {
+      #item_prefecture_id {
         @include selectbox-format();
       }
     }
