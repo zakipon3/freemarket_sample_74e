@@ -38,16 +38,15 @@ ul {
     line-height: 32px;
   }
 
-  .content__head {
-    margin: 0 0 20px;
-    font-size: 16px;
-    font-weight: bold;
+    &__head {
+      margin: 0 0 20px;
+      font-size: 16px;
+      font-weight: bold;
   }
 }
 
 .topfooter__logo {
   max-width: 160px;
-  width: 100%;
   margin: 0 auto;
 }
 
@@ -63,6 +62,7 @@ ul {
 
 .purchaseBtn {
   width: 120px;
+  height: 120px;
   background: #3ccace;
   text-align: center;
   border-radius: 4%;
@@ -70,16 +70,14 @@ ul {
   right: 32px;
   position: fixed;
   padding: 15px;
-}
-
-.purchaseBtn__text {
-  color: #fff;
-  display: block;
-  font-size: 18px;
-  text-decoration: none;
-  margin-bottom: 5px;
-}
-
-.purchaseBtn__icon {
-  width: 60%;
-}
+  &__text {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+ }
+  &__icon {
+    width: 60px;
+  }
+ }

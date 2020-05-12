@@ -3,7 +3,7 @@
     %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
     %p.inner__text 今すぐ無料ダウンロード！
     .inner__icon
-      %a.aBtn{:href => "#"}
-        =image_tag "material/icon/download-on-the-app-store-apple.svg", height: "50", width: "53"
-      %a.gBtn{:href => "#"}
-        =image_tag"material/icon/google-play-badge.svg", height: "50", width: "53"
+      .content__btn--app
+        =link_to (image_tag asset_path("material/icon/download-on-the-app-store-apple.svg"), class:"app_store"), root_path
+      .content__btn--gstore
+        =link_to (image_tag asset_path("material/icon/google-play-badge.svg"), class:"play_store"), root_path

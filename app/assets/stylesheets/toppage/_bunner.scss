@@ -15,19 +15,21 @@
       text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
     }
     &__icon {
-      width: 100%;
       display: flex;
       justify-content: center;
       margin: 20px auto 0;
       a:first-child {
         margin-right: 10px;
       }
-      .aBtn,
-      .gBtn {
-        width: 180px;
-      }
     }
   }
+}
+
+.app_store{
+  width: 180px;
+}
+.play_store {
+  width: 180px;
 }
 
 .topappBanner {
