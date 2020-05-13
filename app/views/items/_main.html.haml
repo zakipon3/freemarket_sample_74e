@@ -1,21 +1,20 @@
 .topmain
-  %section.topmainVisual
+
+  .topmainVisual
     .content
       %h1.content__subtitle
-        %br/
         人生を変えるフリマアプリ
-      %p.content__text
-        FURIMAはだれでもかんたんに出品・購入できる
-        %br/
-        フリマアプリです
+      .content__text
+        %p FURIMAはだれでもかんたんに出品・購入できる
+        %p フリマアプリです
       .content__btn
         .content__btn--app
-          =link_to (image_tag asset_path("material/icon/download-on-the-app-store-apple.svg"), class:"app_store"), root_path
+          =link_to (image_tag asset_path("material/icon/download-on-the-app-store-apple.svg"), height: "50", width: "53"), root_path
         .content__btn--gstore
-          =link_to (image_tag asset_path("material/icon/google-play-badge.svg"), class:"play_store"), root_path
+          =link_to (image_tag asset_path("material/icon/google-play-badge.svg"), height: "50", width: "53"), root_path
     .picture
 
-  %section.topIntroduction
+  .topIntroduction
     %h2.subtitle
       FURIMAが選ばれる3つの理由
     %ul.lists
@@ -47,7 +46,7 @@
         %p.list__description
           最大3%でお得に出品&amp;購入！
 
-  %section.toptopMiddleDl
+  .toptopMiddleDl
     .toptopMiddleDl__inner
       %h2.subtitle 会員数日本一位
       %p.text
@@ -58,11 +57,11 @@
         ほしかったあの商品に出会えるかもしれません。
       .btn
         .content__btn--app
-          =link_to (image_tag asset_path("material/icon/download-on-the-app-store-apple.svg"), class:"app_store"), root_path
+          =link_to (image_tag asset_path("material/icon/download-on-the-app-store-apple.svg"), height: "50", width: "53"), root_path, class: "app_store"
         .content__btn--gstore
-          =link_to (image_tag asset_path("material/icon/google-play-badge.svg"), class:"play_store"), root_path
+          =link_to (image_tag asset_path("material/icon/google-play-badge.svg"), height: "50", width: "53"), root_path, class: "play_store"
 
-  %section.toptopKeyFeatures
+  .toptopKeyFeatures
     %h2.head FURIMAの特徴
     .items
       %section.item
@@ -84,96 +83,88 @@
         %p.item__detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
-  %section.toppickupContainer
+  .toppickupContainer
     %h2.head ピックアップカテゴリー
     .topproductBox
       .productHead
         =link_to "新規投稿商品", root_path
       .productLists
         .productList
-          %a{:href => "/products/3"}
-            %figure.productList--img
-              =image_tag 'material/icon/icon-04.png'
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+          =link_to root_path do
+            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
             .productList--body
-              %h3.name product3
+              %h3.name product2
               .details
                 %ul
                   %li 30000円
                   %li
-                    %i.fa.fa-star.likeIcon
+                    =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/2"}
-            %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
+          =link_to root_path do
+            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
             .productList--body
               %h3.name product2
               .details
                 %ul
                   %li 20000円
                   %li
-                    %i.fa.fa-star.likeIcon
+                    =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/1"}
-            %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+          =link_to root_path do
+            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
             .productList--body
-              %h3.name product1
+              %h3.name product2
               .details
                 %ul
                   %li 10000円
                   %li
-                    %i.fa.fa-star.likeIcon
+                    =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)
 
-  %section.toppickupContainer
+  .toppickupContainer
     %h2.head ピックアップブランド
     .topproductBox
       .productHead
-        %a{:href => "#"}
-          %h3.title アーカイバ
+        =link_to "アーカイバ", root_path
       .productLists
         .productList
-          %a{:href => "/products/3"}
-            %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+          =link_to root_path do
+            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
             .productList--body
-              %h3.name product3
+              %h3.name product2
               .details
                 %ul
                   %li 30000円
                   %li
-                    %i.fa.fa-star.likeIcon
+                    =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/2"}
-            %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
+          =link_to root_path do
+            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
             .productList--body
               %h3.name product2
               .details
                 %ul
                   %li 20000円
                   %li
-                    %i.fa.fa-star.likeIcon
+                    =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/1"}
-            %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+          =link_to root_path do
+            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
             .productList--body
-              %h3.name product1
+              %h3.name product2
               .details
                 %ul
                   %li 10000円
                   %li
-                    %i.fa.fa-star.likeIcon
+                    =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)

@@ -1,4 +1,4 @@
-.topfooter {
+.hp__footer {
   padding: 60px 0;
   color: #fff;
   background-color: #272727;
@@ -26,7 +26,7 @@ ul {
   list-style: none;
 }
 
-.topfooter .contents {
+.hp__footer .contents {
   .content li a {
     color: #fff;
     text-decoration: none;
@@ -38,19 +38,19 @@ ul {
     line-height: 32px;
   }
 
-    &__head {
-      margin: 0 0 20px;
-      font-size: 16px;
-      font-weight: bold;
+  &__head {
+    margin: 0 0 20px;
+    font-size: 16px;
+    font-weight: bold;
   }
 }
 
-.topfooter__logo {
+.hp__footer__logo {
   max-width: 160px;
   margin: 0 auto;
 }
 
-.topfooter {
+.hp__footer {
   p {
     font-size: 14px;
   }
@@ -76,8 +76,8 @@ ul {
     font-size: 18px;
     text-decoration: none;
     margin-bottom: 5px;
- }
+  }
   &__icon {
     width: 60px;
   }
- }
+}
