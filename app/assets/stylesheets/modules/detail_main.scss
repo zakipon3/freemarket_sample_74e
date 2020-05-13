@@ -2,7 +2,7 @@
   box-sizing: border-box;}
 
 .detail{
-  background-color: whitesmoke;
+  
   height: 100vh;}
 
 .detail__header {
@@ -17,9 +17,9 @@
   }
 }
 
-.contents{
+.detail__contents{
   background-color: whitesmoke;
-  margin-top: 50px;
+  padding-top: 50px;
   &__top{
     background-color: white;
     width: 700px;
@@ -55,6 +55,7 @@
             justify-content: center;
             margin-top: 10px;
           li{
+            margin: 0 10px 0 0;
           }
         }
       }
@@ -183,7 +184,7 @@
       padding: 8px;
       margin: 10px 0;
     }
-      .center-comment{
+      .detail__center-comment{
 
         form{
           text-align: center;
@@ -234,9 +235,21 @@
     p{
       font-size: 22px;
       font-weight: 600;
-      .another{
+      .more-baby-kids{
         color: #3CCACE;
       }
     }
+  }
+}
+
+.detail__footer{
+  height: 90px;
+  background-color: #ffffff;
+  color: black;
+  box-shadow: 0px 0px 10px -3px;
+  &__search {
+    text-align: center;
+    font-size: 50px;
+    line-height: 90px;
   }
 }

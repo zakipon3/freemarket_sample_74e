@@ -1,5 +1,5 @@
-.contents
-  .contents__top
+.detail__contents
+  .detail__contents__top
     %h1.name
       product3
     .main
@@ -34,11 +34,11 @@
         %th
           カテゴリー
         %td
-          = link_to "ベビー・キッズ", "", class: "ladies"
+          = link_to "ベビー・キッズ", "#", class: "baby-kids"
           %br
-          = link_to "ベビー服(男女兼用)~95cm", "", class: "cap"
+          = link_to "ベビー服(男女兼用)~95cm", "#", class: "baby-clothes-95"
           %br
-          = link_to "アウター", "", class: "casquette"
+          = link_to "アウター", "#", class: "outer"
       %tr
         %th
           ブランド
@@ -76,11 +76,11 @@
           = icon('fa', 'star', class: "contents__btn--icon")
           お気に入り 0
       .item-button-right
-        = link_to "🏴 不適切な商品の報告", "", class: "report"
+        = link_to "🏴 不適切な商品の報告", "#", class: "report"
 
 
-  .contents__center
-    .center-comment
+  .detail__contents__center
+    .detail__center-comment
       %form
         %input.text
       %p
@@ -94,10 +94,10 @@
 
   %ul.other
     %li
-      = link_to "< 前の商品", "", class: "left"
+      = link_to "< 前の商品", "#", class: "left"
     %li
-      = link_to "後ろの商品 >", "", class: "right"
+      = link_to "後ろの商品 >", "#", class: "right"
 
-  .contents__another
+  .detail__contents__another
     %p
-      = link_to "ベビー・キッズをもっと見る", "", class: "another"
+      = link_to "ベビー・キッズをもっと見る", "#", class: "more-baby-kids"
