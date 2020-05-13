@@ -26,12 +26,7 @@
       .new_session-wrapper__main__title
         都道府県
         %span{class: "require"} 必須
-        .flexbox
-          %select{class: "new_session-wrapper__main__select three-select"}
-            %option{value: "0"} --
-            %option{value: "1"} 選択肢1
-            %option{value: "2"} 選択肢2
-            %option{value: "3"} 選択肢3
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, class: "new_session-wrapper__main__select"
       .new_session-wrapper__main__title
         市区町村
         %span{class: "require"} 必須

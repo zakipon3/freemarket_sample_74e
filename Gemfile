@@ -76,3 +76,4 @@ end
 gem 'devise'
 gem 'haml-rails'
 gem 'font-awesome-sass'
+gem 'active_hash'

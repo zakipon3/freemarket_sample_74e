@@ -29,6 +29,7 @@
     width: 700px;
     margin: 0 auto;
     padding: 20px;
+
     &__head {
       text-align: center;
       font-size: 23px;
@@ -75,6 +76,9 @@
         font-size: 15px;
 
       }
+    }
+    &__select{
+      width: 300px;
     }
 
     &__text {
