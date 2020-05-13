@@ -1,9 +1,10 @@
 * {
-  box-sizing: border-box;}
+  box-sizing: border-box;
+}
 
-.detail{
-  
-  height: 100vh;}
+.detail {
+  height: 100vh;
+}
 
 .detail__header {
   height: 90px;
@@ -17,16 +18,16 @@
   }
 }
 
-.detail__contents{
+.detail__contents {
   background-color: whitesmoke;
-  padding-top: 50px;
-  &__top{
+  padding: 40px;
+  &__top {
     background-color: white;
     width: 700px;
     margin: 0 auto;
     padding: 24px 40px 40px;
-    
-    .name{
+
+    .name {
       font-size: 24px;
       padding-top: 20px;
       margin: 0 auto;
@@ -34,52 +35,52 @@
       word-wrap: break-word;
       font-weight: bold;
     }
-    .main{
+    .main {
       margin: 16px 0 0;
       display: flex;
-      ul{
+      ul {
         display: flex;
         position: relative;
         list-style: none;
-        li{
+        li {
           flex-direction: column;
           width: 560px;
           align-items: center;
           margin: 0 auto;
-          .main-image{
+          .main-image {
             object-fit: cover;
             height: 346px;
           }
-          ul{
+          ul {
             display: flex;
             justify-content: center;
             margin-top: 10px;
-          li{
-            margin: 0 10px 0 0;
+            li {
+              margin: 0 10px 0 0;
+            }
           }
         }
       }
-      }
     }
 
-    .fee{
+    .fee {
       display: flex;
       margin: 24px 0 24px;
       text-align: center;
       flex-direction: column;
-      .price{
+      .price {
         margin: 0 16px 0 0;
         font-weight: bold;
         margin: 0 10px 0 0;
         font-size: 46px;
       }
-      .tax{
+      .tax {
         font-size: 16px;
       }
     }
-    .purchase{
+    .purchase {
       text-align: center;
-      a{
+      a {
         display: block;
         margin: 0 auto;
         margin-top: 16px;
@@ -92,16 +93,16 @@
         color: white;
       }
     }
-    .explanation{
+    .explanation {
       font-size: 18px;
       text-align: center;
       margin-bottom: 30px;
-      p{
+      p {
         text-align: left;
         display: inline-block;
       }
     }
-    .item{
+    .item {
       margin: 0 auto;
       font-size: 13px;
       padding: 8px;
@@ -110,57 +111,55 @@
       border-collapse: collapse;
       border: 1px solid #f8f8f8;
       margin-bottom: 20px;
-      tr{
+      tr {
         border: 1px solid #f8f8f8;
-        
       }
-        th{
-          width: 20%;
-          background-color: #eee;
-          font-weight: 400;
-          padding: 8px;
-          border: 1px solid #dedede;
-          font-size: 14px;
-          text-align: center;
+      th {
+        width: 20%;
+        background-color: #eee;
+        font-weight: 400;
+        padding: 8px;
+        border: 1px solid #dedede;
+        font-size: 14px;
+        text-align: center;
+      }
+      td {
+        width: 61%;
+        padding: 15px 15px;
+        border: 1px solid #dedede;
+        font-size: 14px;
+        a {
+          text-decoration: none;
+          color: #3ccace;
         }
-        td{
-          width: 61%;
-          padding: 15px 15px;
-          border: 1px solid #dedede;
-          font-size: 14px;
-          a{
-            text-decoration: none;
-            color: #3CCACE;
-          }
-        }
+      }
     }
 
-    .item-button{
+    .item-button {
       margin: 10px 0 0;
       display: flex;
       justify-content: space-between;
-      .item-button-left{
-
-        .favorite{
+      .item-button-left {
+        .favorite {
           margin-top: 8px;
           padding: 6px 10px;
           border-radius: 40px;
-          color: #3CCACE;
+          color: #3ccace;
           border: 1px solid #ffb340;
           font-size: 15px;
         }
       }
-      .item-button-right{
-          text-decoration: none;
-          display: inline-block;
-          font-size: 12px;
-          color: #000000;
-          padding: 8px 16px;
-          margin-left: 10px;
-          border-radius: 40px;
-          transition: all ease-out .3s;
-        }
-      a{
+      .item-button-right {
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        color: #000000;
+        padding: 8px 16px;
+        margin-left: 10px;
+        border-radius: 40px;
+        transition: all ease-out 0.3s;
+      }
+      a {
         padding: 6px 10px;
         display: inline-block;
         border-radius: 4px;
@@ -171,85 +170,70 @@
     }
   }
 
-
-  &__center{
+  &__center {
     background-color: white;
     height: 305px;
     width: 700px;
     margin: 8px auto;
     padding: 24px;
-    p{
+    p {
       background-color: #f8f8f8;
       font-size: 14px;
       padding: 8px;
       margin: 10px 0;
     }
-      .detail__center-comment{
-
-        form{
-          text-align: center;
-          .text{
-            height: 100px;
-            width: 648px;
-            margin-bottom: 8px;
-          }
+    .detail__center-comment {
+      form {
+        text-align: center;
+        .text {
+          height: 100px;
+          width: 648px;
+          margin-bottom: 8px;
         }
-        .submit{
-          margin: 0 auto;
-          margin-top: 30px;
-          text-align: center;
-          display: block;
-          height: 48px;
-          width: 60%;
-          background-color: #3CCACE;
-          border: 1px solid #3CCACE;
-          line-height: 48px;
-          color: white;
-          font-size: 18px;
-          border-radius: 100px;
+      }
+      .submit {
+        margin: 0 auto;
+        margin-top: 30px;
+        text-align: center;
+        display: block;
+        height: 48px;
+        width: 60%;
+        background-color: #3ccace;
+        border: 1px solid #3ccace;
+        line-height: 48px;
+        color: white;
+        font-size: 18px;
+        border-radius: 100px;
       }
     }
   }
-  ul{
+  ul {
     margin: 0 auto;
     width: 700px;
     list-style: none;
-    .left{
-      color: #3CCACE;
+    .left {
+      color: #3ccace;
       text-decoration: none;
       float: left;
     }
-    .right{
-      color: #3CCACE;
+    .right {
+      color: #3ccace;
       text-decoration: none;
       float: right;
     }
   }
 
-  &__another{
-    height: 300px;
+  &__another {
     width: 700px;
     margin: 0 auto;
     display: block;
     margin-top: 60px;
-    p{
+    p {
       font-size: 22px;
       font-weight: 600;
-      .more-baby-kids{
-        color: #3CCACE;
+      .more-baby-kids {
+        color: #3ccace;
       }
     }
-  }
-}
-
-.detail__footer{
-  height: 90px;
-  background-color: #ffffff;
-  color: black;
-  box-shadow: 0px 0px 10px -3px;
-  &__search {
-    text-align: center;
-    font-size: 50px;
-    line-height: 90px;
   }
 }
