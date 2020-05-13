@@ -25,7 +25,7 @@
   }
 }
 
-.app_store{
+.app_store {
   width: 180px;
 }
 .play_store {
@@ -33,7 +33,7 @@
 }
 
 .topappBanner {
-  background-image: url(material/pict/bg-appBanner-pict.jpg);
+  background-image: image-url("material/pict/bg-appBanner-pict.jpg");
   padding: 100px 40px;
   position: relative;
   background-size: cover;
