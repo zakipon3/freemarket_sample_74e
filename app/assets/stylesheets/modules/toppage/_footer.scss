@@ -3,10 +3,6 @@
   color: #fff;
   background-color: #272727;
   text-align: center;
-  img {
-    width: 100%;
-    vertical-align: bottom;
-  }
   .contents {
     max-width: 840px;
     margin: 0 auto;
@@ -50,6 +46,10 @@ ul {
 }
 
 .hp__footer__logo {
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
   max-width: 160px;
   margin: 0 auto;
 }
