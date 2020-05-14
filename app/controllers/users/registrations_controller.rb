@@ -7,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     @user = User.new
+   
   end
 
   # POST /resource
@@ -22,26 +23,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address 
   end
   
-
-  # def create_address
+  # def new_address
   #   @user = User.new(session["devise.regist_data"]["user"])
-  #   @address = Address.new(address_params)
-  #   unless @address.valid?
-  #     flash.now[:alert] = @address.errors.full_messages
-  #     render :new_address and return
-  #   end
-  #   @user.build_address(@address.attributes)
-  #   @user.save
-  #   session["devise.regist_data"]["user"].clear
-  #   sign_in(:user, @user)
+  #   @address = Address.new
   # end
 
+  def create_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    @address = Address.new(address_params)
+    binding.pry
+    unless @address.valid?
+      flash.now[:alert] = @address.errors.full_messages
+      render :new_address and return
+    end
+    @user.build_address(@address.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+  end
 
+  protected
 
-  # protected
-
-  # def address_params
-  #   params.require(:address).permit(:zipcode, :address)
-  # end
-
+  def address_params
+    params.require(:address).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code, :prefecture_id, :city, :house_number, :building, :tel_number)
+  end
 end

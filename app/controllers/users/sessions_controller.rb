@@ -16,6 +16,7 @@ class Users::SessionsController < Devise::SessionsController
   # DELETE /resource/sign_out
   # def destroy
   #   super
+  #   session[:keep_signed_out] = true
   # end
 
   # protected
