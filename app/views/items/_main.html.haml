@@ -1,6 +1,5 @@
-.topmain
-
-  .topmainVisual
+.hp__main
+  .main__visual
     .content
       %h1.content__subtitle
         人生を変えるフリマアプリ
@@ -9,12 +8,12 @@
         %p フリマアプリです
       .content__btn
         .content__btn--app
-          =link_to (image_tag asset_path("material/icon/download-on-the-app-store-apple.svg"), height: "50", width: "53"), root_path
+          =link_to (image_tag asset_path("material/icon/download-on-the-app-store-apple.svg")), root_path
         .content__btn--gstore
-          =link_to (image_tag asset_path("material/icon/google-play-badge.svg"), height: "50", width: "53"), root_path
-    .picture
+          =link_to (image_tag asset_path("material/icon/google-play-badge.svg")), root_path
 
-  .topIntroduction
+
+  .top__introduction
     %h2.subtitle
       FURIMAが選ばれる3つの理由
     %ul.lists
@@ -46,22 +45,20 @@
         %p.list__description
           最大3%でお得に出品&amp;購入！
 
-  .toptopMiddleDl
-    .toptopMiddleDl__inner
-      %h2.subtitle 会員数日本一位
-      %p.text
-        FURIMAは、フリマアプリで最も人気。
-        %br/
-        出品・購入回数も業界最多です！
-        %br/
-        ほしかったあの商品に出会えるかもしれません。
-      .btn
+  .middle__dl
+    .middle__dl__inner
+      .subtitle 会員数日本一位
+      .text
+        %p FURIMAは、フリマアプリで最も人気。
+        %p 出品・購入回数も業界最多です！
+        %p ほしかったあの商品に出会えるかもしれません。
+      .content__btn
         .content__btn--app
-          =link_to (image_tag asset_path("material/icon/download-on-the-app-store-apple.svg"), height: "50", width: "53"), root_path, class: "app_store"
+          =link_to (image_tag asset_path("material/icon/download-on-the-app-store-apple.svg")), root_path
         .content__btn--gstore
-          =link_to (image_tag asset_path("material/icon/google-play-badge.svg"), height: "50", width: "53"), root_path, class: "play_store"
+          =link_to (image_tag asset_path("material/icon/google-play-badge.svg")), root_path
 
-  .toptopKeyFeatures
+  .key__features
     %h2.head FURIMAの特徴
     .items
       %section.item
@@ -83,17 +80,17 @@
         %p.item__detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
-  .toppickupContainer
+  .pickup__container
     %h2.head ピックアップカテゴリー
-    .topproductBox
-      .productHead
+    .product_box
+      .product__head
         =link_to "新規投稿商品", root_path
-      .productLists
-        .productList
+      .product__lists
+        .product__list
           =link_to root_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
-            .productList--body
-              %h3.name product2
+            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"), class: "product__list--img"
+            .product__list--body
+              %h3.name product1
               .details
                 %ul
                   %li 30000円
@@ -101,10 +98,10 @@
                     =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)
-        .productList
+        .product__list
           =link_to root_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
-            .productList--body
+            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"), class: "product__list--img"
+            .product__list--body
               %h3.name product2
               .details
                 %ul
@@ -113,11 +110,11 @@
                     =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)
-        .productList
+        .product__list
           =link_to root_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
-            .productList--body
-              %h3.name product2
+            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"), class: "product__list--img"
+            .product__list--body
+              %h3.name product1
               .details
                 %ul
                   %li 10000円
@@ -126,17 +123,17 @@
                     0
                 %p (税込)
 
-  .toppickupContainer
+  .pickup__container
     %h2.head ピックアップブランド
-    .topproductBox
-      .productHead
+    .product_box
+      .product__head
         =link_to "アーカイバ", root_path
-      .productLists
-        .productList
+      .product__lists
+        .product__list
           =link_to root_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
-            .productList--body
-              %h3.name product2
+            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"), class: "product__list--img"
+            .product__list--body
+              %h3.name product3
               .details
                 %ul
                   %li 30000円
@@ -144,10 +141,10 @@
                     =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)
-        .productList
+        .product__list
           =link_to root_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
-            .productList--body
+            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"), class: "product__list--img"
+            .product__list--body
               %h3.name product2
               .details
                 %ul
@@ -156,11 +153,11 @@
                     =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)
-        .productList
+        .product__list
           =link_to root_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
-            .productList--body
-              %h3.name product2
+            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"), class: "product__list--img"
+            .product__list--body
+              %h3.name product1
               .details
                 %ul
                   %li 10000円

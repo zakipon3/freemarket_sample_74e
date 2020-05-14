@@ -2,6 +2,10 @@
   max-width: 1040px;
   min-height: 82px;
   margin: 15px auto 10px;
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
   &__inner {
     .header__box {
       position: relative;

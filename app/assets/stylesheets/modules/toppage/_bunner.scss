@@ -1,4 +1,4 @@
-.topappBanner {
+.app__banner {
   padding: 100px 40px;
   position: relative;
   .inner {
@@ -25,15 +25,21 @@
   }
 }
 
-.app_store{
+.app_store {
   width: 180px;
+  &:hover {
+    opacity: 0.5;
+  }
 }
 .play_store {
   width: 180px;
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
-.topappBanner {
-  background-image: url(material/pict/bg-appBanner-pict.jpg);
+.app__banner {
+  background-image: image-url("material/pict/bg-appBanner-pict.jpg");
   padding: 100px 40px;
   position: relative;
   background-size: cover;
