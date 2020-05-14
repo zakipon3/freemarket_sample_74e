@@ -2,6 +2,28 @@
   box-sizing: border-box;
 }
 
+@mixin app_btn {
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
+  &--app {
+    margin-right: 10px;
+    width: 180px;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  &--gstore {
+    margin-right: 10px;
+    width: 180px;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
 @import "toppage/header";
+@import "toppage/main";
 @import "toppage/bunner";
 @import "toppage/footer";
