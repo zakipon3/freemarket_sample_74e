@@ -2,7 +2,7 @@
   max-width: 1040px;
   min-height: 82px;
   margin: 15px auto 10px;
-  background-color: white;
+  background-color: $white;
   img {
     width: 100%;
     vertical-align: bottom;
@@ -37,7 +37,7 @@
             width: 36px;
             border: 0;
             cursor: pointer;
-            background-color: #3ccace;
+            background-color: $basic-color;
             padding: 8px;
           }
           input {
