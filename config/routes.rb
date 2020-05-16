@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     collection do
       get "detail"
     end
+
+    collection do
+      get "purchase"
+    end
   end
 
   resources :users, only: [:new, :edit, :show] do
