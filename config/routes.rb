@@ -8,14 +8,14 @@ Rails.application.routes.draw do
   end
   
   root to: 'items#index'
-  # root to: 'users#index'
-
-  resources :items, only: [:new, :create]
   
+  resources :items, only: [:new, :create] do
+    collection do
+      get "detail"
+    end
 
-  # resources :users, only: [:new, :edit, :show] do
-  #   collection do
-  #     get "touroku"
-  #   end
-  # end
+    collection do
+      get "purchase"
+    end
+  end
 end

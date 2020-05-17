@@ -1,0 +1,92 @@
+.hp__header {
+  max-width: 1040px;
+  min-height: 82px;
+  margin: 15px auto 10px;
+  background-color: $white;
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
+  &__inner {
+    .header__box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      .icon {
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        a {
+          width: 140px;
+          display: block;
+        }
+      }
+      .search__box {
+        margin-left: auto;
+        width: 100%;
+        form {
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          input {
+            width: calc(100% - 26px);
+            height: 36px;
+            padding: 0 0 0 5px;
+          }
+          button {
+            width: 36px;
+            border: 0;
+            cursor: pointer;
+            background-color: $basic-color;
+            padding: 8px;
+          }
+          input {
+            width: calc(100% - 26px);
+            height: 36px;
+            padding: 0 0 0 5px;
+          }
+        }
+      }
+      .topresultLists {
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 36px;
+        z-index: 2;
+      }
+    }
+
+    .nav {
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      .listsLeft {
+        position: relative;
+        display: flex;
+        .listsLeft__item {
+          a {
+            color: #333;
+            line-height: 32px;
+            padding-right: 30px;
+          }
+        }
+      }
+      .listsRight {
+        margin-left: auto;
+        display: flex;
+        .listsRight__item {
+          color: #333;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+          a {
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            line-height: 32px;
+          }
+        }
+      }
+    }
+  }
+}

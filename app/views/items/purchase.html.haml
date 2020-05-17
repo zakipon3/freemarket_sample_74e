@@ -1,0 +1,36 @@
+= render "/items/templates/subheader"
+= form_with url: "#" do |f|
+  .purchase-wrapper
+    .purchase-wrapper__main
+      .purchase-wrapper__main__title
+        .purchase-wrapper__main__title__text
+          購入内容の確認
+      .border
+      .purchase-wrapper__main__contents
+        = image_tag(asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"), width: "100",height: "100")
+        .purchase-wrapper__main__contents__right
+          %p スニーカー
+          %p ￥4980 (税込み) 
+          %p 送料込み
+      .border
+      .purchase-wrapper__main__title
+        .purchase-wrapper__main__title__text
+          .price-box
+            %p 支払い金額
+            %P ￥14,800
+      .purchase-wrapper__main__title
+        .purchase-wrapper__main__title__text
+          支払い方法
+          %p クレジットカード
+      .purchase-wrapper__main__title
+        .purchase-wrapper__main__title__text
+          配送先  〒123-4567
+          東淀川区豊里1-2-3（908）
+          %p 當眞　和博
+        .purchase-wrapper__main__title__text.light.width
+        .purchase__wrapper__submit
+          = f.submit "購入する", class: "purchase__wrapper__submit__button"
+        %p.caution ※郵便局/コンビニ受取をご希望の方は、購入後に取引画面から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+
+= render "/items/templates/subfooter"
+
