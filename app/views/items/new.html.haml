@@ -4,6 +4,11 @@
   = form_with model: @item, url: items_path, local: true do |f|
     .exhibit__wrapper
       .exhibit__wrapper__itemimage
+        - if flash[:error].present?
+          .alert
+            %ul
+              - flash[:error].each do |message|
+                %li= message
         .exhibit__wrapper__itemimage__label
           %label#label 出品画像
           %span#require 必須
@@ -38,7 +43,7 @@
         #category-select
         .exhibit__wrapper__itemdetail__label
           %label#label サイズ
-          %span#require 必須
+          %span#optional 任意
         = f.text_field :size, class: "exhibit__wrapper__itemdetail__textbox", placeholder: "入力してください"
         .exhibit__wrapper__itemdetail__label
           %label#label ブランド

@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
       @item.status_id = EXHIBITING_STATUS
       @item.save
     else
-      redirect_to new_item_path
+      redirect_to new_item_path, flash: { error: @item.errors.full_messages }
     end
   end
 
