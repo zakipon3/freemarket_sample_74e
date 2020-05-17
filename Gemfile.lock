@@ -103,12 +103,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-<<<<<<< HEAD
     diff-lcs (1.3)
-=======
     erb2haml (0.1.5)
       html2haml
->>>>>>> master
     erubi (1.9.0)
     erubis (2.7.0)
     execjs (2.7.0)
