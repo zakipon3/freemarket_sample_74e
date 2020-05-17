@@ -20,11 +20,11 @@
       .new_session-wrapper__main__title
         パスワード
         %span{class: "require"} 必須
-        = f.password_field :password, {class: "new_session-wrapper__main__text", placeholder: "7文字以上、英字数字両方を含むこと"}
+        = f.password_field :password, {class: "new_session-wrapper__main__text", placeholder: "7文字以上"}
       .new_session-wrapper__main__title
         パスワード(確認)
         %span{class: "require"} 必須
-        = f.password_field :password_confirmation, {class: "new_session-wrapper__main__text", placeholder: "7文字以上、英字数字両方を含むこと"}
+        = f.password_field :password_confirmation, {class: "new_session-wrapper__main__text", placeholder: "7文字以上"}
       .new_session-wrapper__main__title
         お名前(全角)
         %span{class: "require"} 必須
@@ -41,20 +41,20 @@
         生年月日
         %span{class: "require"} 必須
         .flexbox
-          - year = ["--"]
+          - year = []
           - for num in 0..100
             - year << 2020-num
-          = f.select :birth_year, year, {}, class: "new_session-wrapper__main__select three-select"
+          = f.select :birth_year, year, {prompt: "--"}, class: "new_session-wrapper__main__select three-select"
           年
-          - month = ["--"]
+          - month = []
           - for num in 1..12
             - month << num
-          = f.select :birth_month, month, {}, class: "new_session-wrapper__main__select three-select"
+          = f.select :birth_month, month, {prompt: "--"}, class: "new_session-wrapper__main__select three-select"
           月
-          - day = ["--"]
+          - day = []
           - for num in 1..31
             - day << num
-          = f.select :birth_day, day, {}, class: "new_session-wrapper__main__select three-select"
+          = f.select :birth_day, day, {prompt: "--"}, class: "new_session-wrapper__main__select three-select"
           日  
       .new_session-wrapper__main__caution
         ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
