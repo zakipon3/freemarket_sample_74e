@@ -5,8 +5,7 @@
     .new_session-wrapper__logo
       = render "devise/sessions/header"
 
-    .new_session-wrapper__main
-      
+    .new_session-wrapper__main     
       .new_session-wrapper__main__head
         会員情報入力
       .new_session-wrapper__main__title
@@ -59,5 +58,4 @@
       .new_session-wrapper__main__caution
         ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
         = f.submit "Next", class: 'new_session-wrapper__main__btn'
-        -# = link_to "次へ進む", new_user_path, class: 'new_session-wrapper__main__btn'
     = render "devise/sessions/footer"
