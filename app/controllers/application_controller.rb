@@ -2,9 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :set_category
 
-  def get_exhibiting_status
-    return 1
-  end
+  EXHIBITING_STATUS = 1
 
   private
   def production?

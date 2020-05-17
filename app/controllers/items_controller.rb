@@ -11,9 +11,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(set_params)
-
     if @item.valid?
-      @item.status_id = get_exhibiting_status()
+      @item.status_id = EXHIBITING_STATUS
       @item.save
     else
       redirect_to new_item_path

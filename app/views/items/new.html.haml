@@ -9,11 +9,15 @@
           %span#require 必須
         .exhibit__wrapper__itemimage__text
           %p 最大10枚までアップロードできます
-        .exhibit__wrapper__itemimage__imagearea
-          =icon("fas", "camera")
-          .exhibit__wrapper__itemimage__imagearea__text
-            %p ドラッグアンドドロップ
-            %p またはクリックしてファイルをダウンロード
+        .exhibit__wrapper__itemimage__flexbox
+          .exhibit__wrapper__itemimage__flexbox__imagearea
+          %label{id: "image-area", action: request.path}
+            .exhibit__wrapper__itemimage__flexbox__imagearea__field
+              =icon("fas", "camera")
+              .exhibit__wrapper__itemimage__flexbox__imagearea__text
+                クリックしてファイルをアップロード
+            = f.fields_for :images do |i|
+              = i.file_field :image, {class: "file-field"}
 
       .exhibit__wrapper__itemname
         .exhibit__wrapper__itemname__label
@@ -31,11 +35,11 @@
         .exhibit__wrapper__itemdetail__label
           %label#label カテゴリー
           %span#require 必須
-        = f.select :category_id, options_for_select({レディース: 1}), include_blank: "正式にはカテゴリ機能実装で作成", class: "exhibit__wrapper__itemdetail__selectbox"
+        #category-select
         .exhibit__wrapper__itemdetail__label
           %label#label サイズ
           %span#require 必須
-        = f.text_field :size, class: "exhibit__wrapper__itemdetail__textbox", placeholder: "選択カテゴリ次第で表示だが、一旦枠だけ作成"
+        = f.text_field :size, class: "exhibit__wrapper__itemdetail__textbox", placeholder: "入力してください"
         .exhibit__wrapper__itemdetail__label
           %label#label ブランド
           %span#optional 任意
