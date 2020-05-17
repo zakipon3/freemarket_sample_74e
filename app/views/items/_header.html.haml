@@ -17,7 +17,13 @@
         %li.listsLeft__item
           = link_to "商品一覧", root_path, class:"catBtn"
       %ul.listsRight
-        %li.listsRight__item
-          = link_to "ログイン", new_user_session_path
-        %li.listsRight__item
-          = link_to "新規会員登録", new_user_registration_path
+        - if user_signed_in?
+          %li.listsRight__item
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+          %li.listsRight__item
+            = link_to "マイページ"
+        - else    
+          %li.listsRight__item
+            = link_to "ログイン", new_user_session_path
+          %li.listsRight__item
+            = link_to "新規会員登録", new_user_registration_path

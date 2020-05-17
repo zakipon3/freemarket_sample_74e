@@ -315,9 +315,9 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  erb2haml
   factory_bot_rails
   faker
-  erb2haml
   font-awesome-sass
   haml-rails
   jbuilder (~> 2.5)
