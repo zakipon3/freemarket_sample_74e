@@ -31,7 +31,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new_address and return
     end
     @user.build_address(@address.attributes)
-    @user.save
+    unless @user.save
+      flash.now[:alert] = @user.errors.full_messages
+      render :new
+    end
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
   end
