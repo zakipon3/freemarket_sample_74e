@@ -1,17 +1,21 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
+  devise_scope :user do
+    get 'addresses', to: 'users/registrations#new_address'
+    post 'addresses', to: 'users/registrations#create_address'
+  end
   
-  devise_for :users
   root to: 'items#index'
-  
-  resources :items, only: [:new, :create, :destroy] do
+  resources :users, only: [:edit, :update]
+  resources :items, only: [:new, :create] do
     collection do
       get "detail"
     end
-  end
 
-  resources :users, only: [:new, :edit, :show] do
     collection do
-      get "touroku"
+      get "purchase"
     end
   end
 end

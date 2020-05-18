@@ -29,6 +29,7 @@
     width: 700px;
     margin: 0 auto;
     padding: 20px;
+
     &__head {
       text-align: center;
       font-size: 23px;
@@ -62,8 +63,16 @@
         background-color: yellowgreen;
         color: white;
       }
+      
     }
-
+    &__select1{
+      width: 80px;
+      height: 30px;
+    }
+    &__select2{
+      width: 300px;
+      height: 30px;
+    }
     &__text {
       margin: 0 auto;
       width: 300px;

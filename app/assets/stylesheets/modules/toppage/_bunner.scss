@@ -1,18 +1,18 @@
-.topappBanner {
+.app__banner {
   padding: 100px 40px;
   position: relative;
   .inner {
-    color: #fff;
+    color: $white;
     text-align: center;
     &__title {
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      text-shadow: $shadow;
       font-size: 24px;
       font-weight: bold;
       line-height: 1.4;
     }
     &__text {
       font-size: 35px;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      text-shadow: $shadow;
     }
     &__icon {
       display: flex;
@@ -25,15 +25,21 @@
   }
 }
 
-.app_store{
+.app_store {
   width: 180px;
+  &:hover {
+    opacity: 0.5;
+  }
 }
 .play_store {
   width: 180px;
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
-.topappBanner {
-  background-image: url(material/pict/bg-appBanner-pict.jpg);
+.app__banner {
+  background-image: image-url("material/pict/bg-appBanner-pict.jpg");
   padding: 100px 40px;
   position: relative;
   background-size: cover;

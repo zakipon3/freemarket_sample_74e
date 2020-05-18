@@ -1,6 +1,6 @@
 .hp__footer {
   padding: 60px 0;
-  color: #fff;
+  color: $white;
   background-color: #272727;
   text-align: center;
   .contents {
@@ -28,11 +28,11 @@ ul {
 
 .hp__footer .contents {
   .content li a {
-    color: #fff;
+    color: $white;
     text-decoration: none;
     font-size: 12px;
     line-height: 32px;
-    color: #fff;
+    color: $white;
     text-decoration: none;
     font-size: 12px;
     line-height: 32px;
@@ -59,7 +59,7 @@ ul {
     font-size: 14px;
   }
   padding: 60px 0;
-  color: #fff;
+  color: $white;
   background-color: #272727;
   text-align: center;
 }
@@ -67,7 +67,7 @@ ul {
 .purchaseBtn {
   width: 120px;
   height: 120px;
-  background: #3ccace;
+  background: $basic-color;
   text-align: center;
   border-radius: 4%;
   bottom: 32px;
@@ -75,7 +75,7 @@ ul {
   position: fixed;
   padding: 15px;
   &__text {
-    color: #fff;
+    color: $white;
     display: block;
     font-size: 18px;
     text-decoration: none;

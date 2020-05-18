@@ -1,5 +1,5 @@
-= form_with model: @user, url: user_registration_path do |f|
-
+= form_with model: @address, local: true do |f|
+  = render "devise/shared/error_messages", resource: @address
   .new_session-wrapper
     .new_session-wrapper__logo   
       = render "devise/sessions/header"
@@ -18,32 +18,32 @@
         %span{class: "require"} 必須
         .flexbox
           = f.text_field :first_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)ヤマダ"}
-          = f.text_field :first_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)アヤ"}
+          = f.text_field :last_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)アヤ"}
       .new_session-wrapper__main__title
         郵便番号
         %span{class: "require"} 必須
-        %input{class: "new_session-wrapper__main__text", placeholder: "例)123-4567"}
+        = f.text_field :postal_code, {class: "new_session-wrapper__main__text", placeholder: "例)123-4567"}
       .new_session-wrapper__main__title
         都道府県
         %span{class: "require"} 必須
-        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, class: "new_session-wrapper__main__select"
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, class: "new_session-wrapper__main__select2"
       .new_session-wrapper__main__title
         市区町村
         %span{class: "require"} 必須
-        %input{class: "new_session-wrapper__main__text", placeholder: "例）大阪市中央区"}
+        = f.text_field :city, {class: "new_session-wrapper__main__text", placeholder: "例）大阪市中央区"}
       .new_session-wrapper__main__title
         番地
         %span{class: "require"} 必須
-        %input{class: "new_session-wrapper__main__text", placeholder: "例）難波5-1"}
+        = f.text_field :house_number, {class: "new_session-wrapper__main__text", placeholder: "例）難波5-1"}
       .new_session-wrapper__main__title
         建物名
         %span{class: "any"} 任意
-        %input{class: "new_session-wrapper__main__text", placeholder: "例）スカイオ15F"}
+        = f.text_field :building, {class: "new_session-wrapper__main__text", placeholder: "例）スカイオ15F"}
       .new_session-wrapper__main__title
         電話番号
         %span{class: "any"} 任意
-        %input{class: "new_session-wrapper__main__text", placeholder: "ハイフンなし10~11桁"}
+        = f.text_field :tel_number, {class: "new_session-wrapper__main__text", placeholder: "ハイフンなし10~11桁"}
       .new_session-wrapper__main__caution
         ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
-        = link_to "次へ進む", touroku_users_path, class: 'new_session-wrapper__main__btn'
+        = f.submit "Next", class: 'new_session-wrapper__main__btn'
     = render "devise/sessions/footer"
