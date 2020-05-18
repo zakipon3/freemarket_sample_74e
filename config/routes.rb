@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: 'items#index'
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
+  devise_scope :user do
+    get 'addresses', to: 'users/registrations#new_address'
+    post 'addresses', to: 'users/registrations#create_address'
+  end
   
+  root to: 'items#index'
+  resources :users, only: [:edit, :update]
   resources :items, only: [:new, :create] do
     collection do
       get "detail"
@@ -9,12 +16,6 @@ Rails.application.routes.draw do
 
     collection do
       get "purchase"
-    end
-  end
-
-  resources :users, only: [:new, :edit, :show] do
-    collection do
-      get "touroku"
     end
   end
 end
