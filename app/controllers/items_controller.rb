@@ -13,7 +13,9 @@ class ItemsController < ApplicationController
     @item = Item.new(set_params)
     if @item.valid?
       @item.status_id = EXHIBITING_STATUS
-      @item.save
+      unless @item.save
+        redirect_to new_item_path, flash: { error: @item.errors.full_messages }
+      end
     else
       redirect_to new_item_path, flash: { error: @item.errors.full_messages }
     end
