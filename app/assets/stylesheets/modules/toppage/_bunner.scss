@@ -1,0 +1,47 @@
+.app__banner {
+  padding: 100px 40px;
+  position: relative;
+  .inner {
+    color: $white;
+    text-align: center;
+    &__title {
+      text-shadow: $shadow;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__text {
+      font-size: 35px;
+      text-shadow: $shadow;
+    }
+    &__icon {
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      a:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.app_store {
+  width: 180px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+.play_store {
+  width: 180px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.app__banner {
+  background-image: image-url("material/pict/bg-appBanner-pict.jpg");
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}

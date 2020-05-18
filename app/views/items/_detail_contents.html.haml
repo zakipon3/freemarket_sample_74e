@@ -1,0 +1,103 @@
+.detail__contents
+  .detail__contents__top
+    %h1.name
+      product3
+    .main
+      %ul
+        %li
+          = image_tag src='a007.png', alt: "image",size:'560x346', id:'pic1', class:'main-image'
+          %ul
+            %li
+              = image_tag src='a007.png', alt: "image",size:'140x87', id:'pic1', class:'image'
+              = image_tag src='a001.png', alt: "image",size:'140x87', id:'pic2', class:'image'
+              = image_tag src='a003.png', alt: "image",size:'140x87', id:'pic3', class:'image'
+    .fee
+      %span.price
+        ¥30000
+      .tax
+        (税込)送料込み
+    .explanation
+      %p
+        親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の
+        二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をし
+        たと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を
+        出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降
+        りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰
+        って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+    %table.item
+      %tr
+        %th.menu
+          出品者
+        %td
+          hoge
+      %tr
+        %th
+          カテゴリー
+        %td
+          = link_to "ベビー・キッズ", "#", class: "baby-kids"
+          %br
+          = link_to "ベビー服(男女兼用)~95cm", "#", class: "baby-clothes-95"
+          %br
+          = link_to "アウター", "#", class: "outer"
+      %tr
+        %th
+          ブランド
+        %td
+          
+      %tr
+        %th
+          商品のサイズ
+        %td
+          
+      %tr
+        %th
+          商品の状態
+        %td
+          未使用に近い
+      %tr
+        %th
+          配送料の負担
+        %td
+          送料込み（出品者負担）
+      %tr
+        %th
+          配送元の地域
+        %td
+          = link_to "岩手県", "", class: "Prefectures"
+      %tr
+        %th
+          発送日の目安
+        %td
+          4-7日で発送
+
+    .item-button
+      .item-button-left
+        %button.favorite
+          = icon('fa', 'star', class: "contents__btn--icon")
+          お気に入り 0
+      .item-button-right
+        = link_to "🏴 不適切な商品の報告", "#", class: "report"
+
+
+  .detail__contents__center
+    .detail__center-comment
+      %form
+        %input.text
+      %p
+        相手のことを考え丁寧なコメントを心がけましょう。
+        %br
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %button.submit
+        = icon('fa', 'comment', class: "comment__btn--icon") 
+        コメントする
+
+
+  %ul.other
+    %li
+      = link_to "< 前の商品", "#", class: "left"
+    %li
+      = link_to "後ろの商品 >", "#", class: "right"
+
+  .detail__contents__another
+    %p
+      = link_to "ベビー・キッズをもっと見る", "#", class: "more-baby-kids"

@@ -1,0 +1,29 @@
+.hp__header
+  .hp__header__inner
+    .header__box
+      .icon
+        = link_to (image_tag asset_path("material/logo/logo.png"), alt:"test"), root_path
+      .search__box
+        %form{"accept-charset": "UTF-8", action: "#", method: "get"}
+          %input{name: "utf8", type: "hidden", value: "✓"}/
+          %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}/
+          %button{type: "submit"}
+            .search__box__icon
+              =image_tag asset_path('material/icon/icon-search 1.png')
+          %input{name: "authenticity_token", type: "hidden", value: "k0ZPEbptaaDwDD8yF1Q3pvPnbXFHEMFLbA8zgiYouBXKwreit0eqBKjr8ixYwkbtm3pSrAMhhUwn6jXJR2I60Q=="}/
+      %ul.topresultLists
+    .nav
+      %ul.listsLeft
+        %li.listsLeft__item
+          = link_to "商品一覧", root_path, class:"catBtn"
+      %ul.listsRight
+        - if user_signed_in?
+          %li.listsRight__item
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+          %li.listsRight__item
+            = link_to "マイページ"
+        - else    
+          %li.listsRight__item
+            = link_to "ログイン", new_user_session_path
+          %li.listsRight__item
+            = link_to "新規会員登録", new_user_registration_path
