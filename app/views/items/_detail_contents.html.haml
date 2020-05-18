@@ -34,7 +34,7 @@
         %th
           カテゴリー
         %td
-          = link_to "ベビー・キッズ", "#", class: "baby-kids"
+          = link_to "ベビー・キッズ","#", class: "baby-kids"
           %br
           = link_to "ベビー服(男女兼用)~95cm", "#", class: "baby-clothes-95"
           %br
@@ -77,6 +77,13 @@
           お気に入り 0
       .item-button-right
         = link_to "🏴 不適切な商品の報告", "#", class: "report"
+    
+    .purchase
+      = link_to "購入画面に進む", "#", class: "submit"
+  -if  user_signed_in? && current_user.id == item.user_id 
+    .item-edit
+      = link_to "商品編集", "#", class: "edit"
+      = link_to "商品削除", "#", class: "delete"
 
 
   .detail__contents__center

@@ -84,7 +84,7 @@
         display: block;
         margin: 0 auto;
         margin-top: 16px;
-        background: #ea352d;
+        background: #3CCACE;
         height: 60px;
         width: 620px;
         font-weight: 600;
@@ -93,6 +93,22 @@
         color: white;
       }
     }
+    .item-edit{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      text-align: center;
+      a{
+        color: white;
+        margin: 0 auto;
+        background-color: #3CCACE;
+        height: 30px;
+        width: 200px;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 30px;
+    }
+  }
     .explanation {
       font-size: 18px;
       text-align: center;
