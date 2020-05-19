@@ -86,80 +86,32 @@
         =link_to "新規投稿商品", root_path
       .product__lists
         .product__list
+        - @items[0..3].each do |item|
           =link_to detail_items_path do
             =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"), class: "product__list--img"
             .product__list--body
-              %h3.name product1
+              %h3= item.name
               .details
                 %ul
-                  %li 30000円
+                  %li= "¥" + item.price.to_s
                   %li
                     =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)
-        .product__list
-          =link_to detail_items_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"), class: "product__list--img"
-            .product__list--body
-              %h3.name product2
-              .details
-                %ul
-                  %li 20000円
-                  %li
-                    =icon("fas", "star", class: "likeIcon")
-                    0
-                %p (税込)
-        .product__list
-          =link_to detail_items_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"), class: "product__list--img"
-            .product__list--body
-              %h3.name product1
-              .details
-                %ul
-                  %li 10000円
-                  %li
-                    =icon("fas", "star", class: "likeIcon")
-                    0
-                %p (税込)
-
+    
   .pickup__container
-    %h2.head ピックアップブランド
     .product_box
       .product__head
-        =link_to "アーカイバ", root_path
       .product__lists
         .product__list
+        - @items[3..7].each do |item|
           =link_to detail_items_path do
             =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"), class: "product__list--img"
             .product__list--body
-              %h3.name product3
+              %h3= item.name
               .details
                 %ul
-                  %li 30000円
-                  %li
-                    =icon("fas", "star", class: "likeIcon")
-                    0
-                %p (税込)
-        .product__list
-          =link_to detail_items_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"), class: "product__list--img"
-            .product__list--body
-              %h3.name product2
-              .details
-                %ul
-                  %li 20000円
-                  %li
-                    =icon("fas", "star", class: "likeIcon")
-                    0
-                %p (税込)
-        .product__list
-          =link_to detail_items_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"), class: "product__list--img"
-            .product__list--body
-              %h3.name product1
-              .details
-                %ul
-                  %li 10000円
+                  %li= "¥" + item.price.to_s
                   %li
                     =icon("fas", "star", class: "likeIcon")
                     0
