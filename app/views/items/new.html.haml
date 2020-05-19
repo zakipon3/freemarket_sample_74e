@@ -1,19 +1,28 @@
 = render "/items/templates/subheader"
 
 .exhibit
-  = form_with url: "#" do |f|
+  = form_with model: @item, url: items_path, local: true do |f|
     .exhibit__wrapper
       .exhibit__wrapper__itemimage
+        - if flash[:error].present?
+          .alert
+            %ul
+              - flash[:error].each do |message|
+                %li= message
         .exhibit__wrapper__itemimage__label
           %label#label 出品画像
           %span#require 必須
         .exhibit__wrapper__itemimage__text
           %p 最大10枚までアップロードできます
-        .exhibit__wrapper__itemimage__imagearea
-          =icon("fas", "camera")
-          .exhibit__wrapper__itemimage__imagearea__text
-            %p ドラッグアンドドロップ
-            %p またはクリックしてファイルをダウンロード
+        .exhibit__wrapper__itemimage__flexbox
+          .exhibit__wrapper__itemimage__flexbox__imagearea
+          %label{id: "image-area", action: request.path}
+            .exhibit__wrapper__itemimage__flexbox__imagearea__field
+              =icon("fas", "camera")
+              .exhibit__wrapper__itemimage__flexbox__imagearea__text
+                クリックしてファイルをアップロード
+            = f.fields_for :images do |i|
+              = i.file_field :image, {class: "file-field"}
 
       .exhibit__wrapper__itemname
         .exhibit__wrapper__itemname__label
@@ -31,11 +40,11 @@
         .exhibit__wrapper__itemdetail__label
           %label#label カテゴリー
           %span#require 必須
-        = select_tag :category_id, options_for_select({レディース: 1}), include_blank: "正式にはカテゴリ機能実装で作成", class: "exhibit__wrapper__itemdetail__selectbox"
+        #category-select
         .exhibit__wrapper__itemdetail__label
           %label#label サイズ
-          %span#require 必須
-        = f.text_field :size, class: "exhibit__wrapper__itemdetail__textbox", placeholder: "選択カテゴリ次第で表示だが、一旦枠だけ作成"
+          %span#optional 任意
+        = f.text_field :size, class: "exhibit__wrapper__itemdetail__textbox", placeholder: "入力してください"
         .exhibit__wrapper__itemdetail__label
           %label#label ブランド
           %span#optional 任意
@@ -43,7 +52,7 @@
         .exhibit__wrapper__itemdetail__label
           %label#label 商品の状態
           %span#require 必須
-        = select_tag :condition_id, options_for_select({新品、未使用: 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdetail__selectbox"
+        = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, class: "exhibit__wrapper__itemdetail__selectbox"
 
       .exhibit__wrapper__itemdelivery
         .exhibit__wrapper__itemdelivery__label
@@ -51,15 +60,15 @@
         .exhibit__wrapper__itemdelivery__label
           %label#label 配送料の負担
           %span#require 必須
-        = select_tag :delivery_fee_id, options_for_select({送料込み（出品者負担）: 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdelivery__selectbox"
+        = f.collection_select :delivery_fee_id, Deliveryfee.all, :id, :name, {prompt: "選択してください"}, class: "exhibit__wrapper__itemdelivery__selectbox"
         .exhibit__wrapper__itemdelivery__label
           %label#label 発送元の地域
           %span#require 必須
-        = select_tag :prefecture_id, options_for_select({北海道: 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdelivery__selectbox"
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, class: "exhibit__wrapper__itemdelivery__selectbox"
         .exhibit__wrapper__itemdelivery__label
           %label#label 発送までの日数
           %span#require 必須
-        = select_tag :days_until_shipping_id, options_for_select({"1〜2日で発送": 1}), include_blank: "正式にはactivehashで作成", class: "exhibit__wrapper__itemdelivery__selectbox"
+        = f.collection_select :days_until_shipping_id, Daysuntilshipping.all, :id, :name, {prompt: "選択してください"}, class: "exhibit__wrapper__itemdelivery__selectbox"
 
       .exhibit__wrapper__itemprice
         .exhibit__wrapper__itemprice__label
