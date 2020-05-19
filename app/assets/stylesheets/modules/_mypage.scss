@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+@mixin mypage-btn {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__btn {
+    background-color: $basic-color;
+    color: $white;
+    text-align: center;
+    line-height: 50px;
+    width: 400px;
+    height: 50px;
+  }
+}
+
+.mypage__container {
+  background-color: whitesmoke;
+  .mypage__inner {
+    margin: 0 auto 0;
+    padding: 40px 0 20px 0;
+    width: 1020px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.side {
+  &__list {
+    p {
+      margin: 40px 0 5px 0;
+    }
+    .btn {
+      border: 1px solid whitesmoke;
+      background-color: $white;
+      width: 280px;
+      height: 48px;
+      font-size: 14px;
+      line-height: 48px;
+      &:hover {
+        background-color: wheat;
+      }
+      a {
+        padding: 0 10px;
+        color: black;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+        &:hover {
+          opacity: 0.5;
+        }
+        .arrow {
+          margin: auto 0;
+        }
+      }
+    }
+  }
+}
+
+.mypage__content {
+  width: 700px;
+  height: 100%;
+  background-color: white;
+}
+
+.user {
+  background-color: white;
+  height: 200px;
+  background-image: image-url("material/pict/mypage_back.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__name {
+    a {
+      color: black;
+      &:hover {
+        text-decoration: underline;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.content__card__title {
+  height: 50px;
+  text-align: center;
+  border: 1px solid whitesmoke;
+  font-weight: bold;
+  font-size: 18px;
+  p {
+    line-height: 50px;
+  }
+}
+
+.card__add__title {
+  height: 50px;
+  text-align: center;
+  border: 1px solid whitesmoke;
+  font-weight: bold;
+  font-size: 20px;
+  p {
+    line-height: 50px;
+  }
+}
+
+.card__add__inner {
+  display: flex;
+  justify-content: center;
+  .input_form {
+    padding: 20px;
+    .cards-expire {
+      padding: 10px;
+      .label {
+        width: 310px;
+        .require {
+          padding: 2px;
+          font-size: 12px;
+          border-radius: 2px;
+          background-color: #3ccace;
+          color: white;
+        }
+      }
+      .input_text {
+        margin: 0 auto;
+        width: 300px;
+        height: 45px;
+        padding-left: 10px;
+      }
+      .card_list {
+        margin-top: 5px;
+      }
+      &__wrap {
+        display: flex;
+        .range {
+          margin-right: 10px;
+          height: 25px;
+        }
+        .expire-text {
+          font-size: 14px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+.new-card {
+  @include mypage-btn;
+}
+
+.add_card {
+  @include mypage-btn;
+  height: 0px;
+  margin: 10px 0;
+}
+
+.logout {
+  @include mypage-btn;
+}

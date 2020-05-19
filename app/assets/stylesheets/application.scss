@@ -1,9 +1,13 @@
 @import "reset";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "variables";
 
 @import "users";
 @import "modules/detail_main";
 @import "modules/items_index";
+
+@import "modules/mypage";
 
 @import "modules/items_new";
 @import "modules/items_create";
@@ -11,6 +15,3 @@
 
 @import "templates/subheader";
 @import "templates/subfooter";
-
-@import "font-awesome-sprockets";
-@import "font-awesome";
