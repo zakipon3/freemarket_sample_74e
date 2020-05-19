@@ -35,7 +35,7 @@
   font-size: 14px;
   &__wrapper {
     background: #fff;
-    width: 60%;
+    width: 50%;
     margin: auto;
     &__itemimage {
       @include box-format();
@@ -43,25 +43,54 @@
         margin-top: 16px;
         line-height: 1.4em;
       }
-      &__imagearea {
-        height: 112px;
-        margin: 16px auto;
-        background-color: #eee;
-        border: 1px dashed #ccc;
+      &__flexbox {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 12px;
-        text-align: center;
-        position: relative;
-        .fa-camera {
-          position: absolute;
-          top: 40px;
-          font-size: 20px;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        width: 660px;
+        &__imagearea, &__imagearea-first {
+          margin: 16px 0;
+          display: flex;
+          flex-wrap: wrap;
+          &__field{
+            width: 660px;
+            height: 160px;
+            margin: 16px auto;
+            background-color: #eee;
+            border: 1px dashed #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            text-align: center;
+            position: relative;
+            .fa-camera {
+              position: absolute;
+              top: 40px;
+              font-size: 20px;
+            }
+            &__text {
+              font-size: 10px;
+              padding-top: 40px;
+            }
+          }
+          &__image {
+            &__img{
+              width: 131px;
+              margin-right: 1px;
+              height: 160px;
+              object-fit: cover;
+            }
+            &__delete-btn{
+              text-shadow: 0 0 2px white;
+              cursor: pointer;
+              position: absolute;
+              top: 0px;
+            }
+          }
         }
-        &__text {
-          font-size: 10px;
-          padding-top: 40px;
+        .file-field {
+          display: none;
         }
       }
     }

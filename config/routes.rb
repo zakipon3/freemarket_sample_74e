@@ -6,16 +6,18 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  
-  root to: 'items#index'
-  resources :users, only: [:edit, :update]
-  resources :items, only: [:new, :create] do
-    collection do
-      get "detail"
-    end
 
+  root to: 'items#index'
+
+  resources :items do
     collection do
+      get "set_parents"
+      get "set_children"
+      get "set_grandchildren"
+      get "detail"
       get "purchase"
     end
   end
+
+  resources :users, only: [:edit, :update]
 end
