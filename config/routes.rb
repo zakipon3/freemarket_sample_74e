@@ -15,13 +15,9 @@ Rails.application.routes.draw do
       get "set_children"
       get "set_grandchildren"
       get "detail"
+      get "purchase"
     end
   end
 
   resources :users, only: [:edit, :update]
-
-    collection do
-      get "purchase"
-    end
-  end
 end
