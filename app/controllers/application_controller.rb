@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
   protected
   
   def configure_permitted_parameters
@@ -12,6 +13,11 @@ class ApplicationController < ActionController::Base
 
   def production?
     Rails.env.production?
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:title, :content).merge(user_id: current_user.id)
   end
   
   def basic_auth

@@ -10,4 +10,9 @@ class ItemsController < ApplicationController
 
   def detail
   end
+
+  private
+  def item_params
+    params.require(:item).permit(:title, :content).merge(user_id: current_user.id)
+  end
 end
