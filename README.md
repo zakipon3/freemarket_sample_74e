@@ -41,7 +41,7 @@ Things you may want to cover:
 ### Association
 - has_one : address
 - has_many : creditcards
-- has_many : trades
+- has_many : items
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -75,10 +75,11 @@ Things you may want to cover:
 |prefecture_id|integer|null: false|
 |days_until_shipping_id|integer|null: false|
 |status_id|integer|null: false|
+|seller_id|integer|foreign_key: true|
+|buyer_id|integer|foreign_key: true|
 
 ### Association
 - belong_to : user
-- has_many : trades
 - has_many : images
 - belong_to : category
 - belongs_to_active_hash :prefecture
@@ -86,17 +87,6 @@ Things you may want to cover:
 - belongs_to_active_hash :delivery_fee
 - belongs_to_active_hash :days_until_shipping
 - belongs_to_active_hash :status
-
-## tradesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_id|integer|null: false, foreign_key: true|
-|seller_id|integer|null: false, foreign_key: true|
-|buyer_id|integer|null: false, foreign_key: true|
-
-### Association
-- belong_to : user
-- belong_to : item
 
 ## imagesテーブル
 |Column|Type|Options|
