@@ -1,52 +1,49 @@
-.new_session-wrapper
-  .new_session-wrapper__logo   
-    = render "devise/sessions/header"
+= form_with model: @user, url: user_registration_path do |f|
 
-  .new_session-wrapper__main
-    .new_session-wrapper__main__head
-      発送元・送り先住所情報
-    .new_session-wrapper__main__title
-      お名前(全角)
-      %span{class: "require"} 必須
-      .flexbox
-        %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)山田"}
-        %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)彩"}
-    .new_session-wrapper__main__title
-      お名前カナ(全角)
-      %span{class: "require"} 必須
-      .flexbox
-        %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)ヤマダ"}
-        %input{class: "new_session-wrapper__main__text text-half", placeholder: "例)アヤ"}
-    .new_session-wrapper__main__title
-      郵便番号
-      %span{class: "require"} 必須
-      %input{class: "new_session-wrapper__main__text", placeholder: "例)123-4567"}
-    .new_session-wrapper__main__title
-      都道府県
-      %span{class: "require"} 必須
-      .flexbox
-        %select{class: "new_session-wrapper__main__select three-select"}
-          %option{value: "0"} --
-          %option{value: "1"} 選択肢1
-          %option{value: "2"} 選択肢2
-          %option{value: "3"} 選択肢3
-    .new_session-wrapper__main__title
-      市区町村
-      %span{class: "require"} 必須
-      %input{class: "new_session-wrapper__main__text", placeholder: "例）大阪市中央区"}
-    .new_session-wrapper__main__title
-      番地
-      %span{class: "require"} 必須
-      %input{class: "new_session-wrapper__main__text", placeholder: "例）難波5-1"}
-    .new_session-wrapper__main__title
-      建物名
-      %span{class: "any"} 任意
-      %input{class: "new_session-wrapper__main__text", placeholder: "例）スカイオ15F"}
-    .new_session-wrapper__main__title
-      電話番号
-      %span{class: "any"} 任意
-      %input{class: "new_session-wrapper__main__text", placeholder: "ハイフンなし10~11桁"}
-    .new_session-wrapper__main__caution
-      ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
-      = link_to "次へ進む", touroku_users_path, class: 'new_session-wrapper__main__btn'
-  = render "devise/sessions/footer"
+  .new_session-wrapper
+    .new_session-wrapper__logo   
+      = render "devise/sessions/header"
+
+    .new_session-wrapper__main
+      .new_session-wrapper__main__head
+        発送元・送り先住所情報
+      .new_session-wrapper__main__title
+        お名前(全角)
+        %span{class: "require"} 必須
+        .flexbox
+          = f.text_field :first_name, {class: "new_session-wrapper__main__text text-half", placeholder: "例)山田"}
+          = f.text_field :last_name, {class: "new_session-wrapper__main__text text-half", placeholder: "例)彩"}
+      .new_session-wrapper__main__title
+        お名前カナ(全角)
+        %span{class: "require"} 必須
+        .flexbox
+          = f.text_field :first_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)ヤマダ"}
+          = f.text_field :first_name_kana, {class: "new_session-wrapper__main__text text-half", placeholder: "例)アヤ"}
+      .new_session-wrapper__main__title
+        郵便番号
+        %span{class: "require"} 必須
+        %input{class: "new_session-wrapper__main__text", placeholder: "例)123-4567"}
+      .new_session-wrapper__main__title
+        都道府県
+        %span{class: "require"} 必須
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, class: "new_session-wrapper__main__select"
+      .new_session-wrapper__main__title
+        市区町村
+        %span{class: "require"} 必須
+        %input{class: "new_session-wrapper__main__text", placeholder: "例）大阪市中央区"}
+      .new_session-wrapper__main__title
+        番地
+        %span{class: "require"} 必須
+        %input{class: "new_session-wrapper__main__text", placeholder: "例）難波5-1"}
+      .new_session-wrapper__main__title
+        建物名
+        %span{class: "any"} 任意
+        %input{class: "new_session-wrapper__main__text", placeholder: "例）スカイオ15F"}
+      .new_session-wrapper__main__title
+        電話番号
+        %span{class: "any"} 任意
+        %input{class: "new_session-wrapper__main__text", placeholder: "ハイフンなし10~11桁"}
+      .new_session-wrapper__main__caution
+        ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
+        = link_to "次へ進む", touroku_users_path, class: 'new_session-wrapper__main__btn'
+    = render "devise/sessions/footer"

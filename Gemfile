@@ -46,6 +46,10 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -75,5 +79,9 @@ end
 gem 'devise'
 gem 'haml-rails'
 gem 'font-awesome-sass'
+gem 'active_hash'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'jquery-rails'
+gem 'ancestry'
 gem 'erb2haml'
-
