@@ -20,4 +20,7 @@ class User < ApplicationRecord
     end
   end
   has_one :address
+
+  has_many :buyer_items, class_name: "Item", foreign_key: "buyer_id"
+  has_many :seller_items, class_name: "Item", foreign_key: "seller_id"
 end

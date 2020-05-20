@@ -1,0 +1,44 @@
+.side
+  %ul.side__list
+    %li.btn
+      = link_to mypage_index_path do
+        .text マイページ
+        =icon("fas", "chevron-right", class: "arrow")
+    %li.btn
+      = link_to do
+        .text 出品した商品-出品中
+        =icon("fas", "chevron-right", class: "arrow")
+    %li.btn
+      = link_to do
+        .text 出品した商品-取引中
+        =icon("fas", "chevron-right", class: "arrow")
+    %li.btn
+      = link_to do
+        .text 出品した商品-売却済み
+        =icon("fas", "chevron-right", class: "arrow")
+    %li.btn
+      = link_to do
+        .text 出品した商品-取引中
+        =icon("fas", "chevron-right", class: "arrow")
+    %li.btn
+      = link_to do
+        .text 出品した商品-過去の取引
+        =icon("fas", "chevron-right", class: "arrow")
+  %ul.side__list
+    %p 設定
+    %li.btn
+      = link_to do
+        .text 発送元・お届け先住所変更
+        =icon("fas", "chevron-right", class: "arrow")
+    %li.btn
+      = link_to card_mypage_index_path do
+        .text 支払い方法
+        =icon("fas", "chevron-right", class: "arrow")
+    %li.btn
+      = link_to edit_user_password_path do
+        .text パスワード
+        =icon("fas", "chevron-right", class: "arrow")
+    %li.btn
+      = link_to logout_mypage_index_path do
+        .text ログアウト
+        =icon("fas", "chevron-right", class: "arrow")
