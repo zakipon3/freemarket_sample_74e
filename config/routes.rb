@@ -19,5 +19,24 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only: [:new, :edit, :show] do
+    collection do
+      get "touroku"
+    end
+  end
+
+  resources :mypage, only: [:index, :show, :new, :edit, :create] do
+
+    collection do
+      get "logout"
+    end
+    
+    collection do
+      get "card"
+    end
+  end
+
+
   resources :users, only: [:edit, :update]
+
 end
