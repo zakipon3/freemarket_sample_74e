@@ -80,10 +80,10 @@
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
   .pickup__container
-    %h2.head ピックアップカテゴリー
+    %h2.head 新規投稿商品
     .product_box
       .product__head
-        =link_to "新規投稿商品", root_path
+        =link_to "もっと見る", list_items_path
       .product__lists
         .product__list
         - @items[0..3].each do |item|
@@ -99,12 +99,12 @@
                     0
                 %p (税込)
     
-  .pickup__container
+  .pickup__container2
     .product_box
       .product__head
       .product__lists
         .product__list
-        - @items[3..7].each do |item|
+        - @items[4..7].each do |item|
           =link_to detail_items_path do
             =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"), class: "product__list--img"
             .product__list--body

@@ -1,11 +1,9 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
-    # .older(created_at: :desc)
+    @items = Item.all.where(status_id: '1').order(created_at: :desc)
   end
 
   def new
-    # @new = New.all
   end
 
   def create
@@ -15,5 +13,9 @@ class ItemsController < ApplicationController
   end
 
   def detail
+  end
+
+  def list
+    @items = Item.all.where(status_id: '1').order(created_at: :desc)
   end
 end

@@ -31,5 +31,8 @@
     = link_to (image_tag asset_path("material/logo/logo-white.png"), alt:"test"), root_path
     %p © FURIMA
   .purchaseBtn
-    %span.purchaseBtn__text 出品する
-    = link_to (image_tag asset_path("material/icon/icon_camera.png"), class:"purchaseBtn__icon", alt:"test"), root_path
+    出品する
+    - if user_signed_in?
+      = link_to (image_tag asset_path("material/icon/icon_camera.png"), class:"purchaseBtn__icon", alt:"test"), new_item_path
+    - else
+      = link_to (image_tag asset_path("material/icon/icon_camera.png"), class:"purchaseBtn__icon", alt:"test"), new_user_session_path

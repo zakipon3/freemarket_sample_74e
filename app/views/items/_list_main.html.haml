@@ -1,0 +1,16 @@
+.pickup__container3
+  %h2.head 投稿商品一覧
+  .product_box
+    .product__lists1
+      - @items.each do |item|
+        =link_to detail_items_path do
+          =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"), class: "product__list--img"
+          .product__list--body
+            %h3= item.name
+            .details
+              %ul
+                %li= "¥" + item.price.to_s
+                %li
+                  =icon("fas", "star", class: "likeIcon")
+                  0
+              %p (税込)

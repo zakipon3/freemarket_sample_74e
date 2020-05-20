@@ -223,10 +223,63 @@
     padding-bottom: 5px;
     .product__head {
       text-align: center;
+      
       a {
         font-size: 24px;
         text-decoration: none;
         color: $basic-color;
+        
+      }
+    }
+  }
+}
+
+// #要確認
+.pickup__container2 {
+  padding: 0 0 80px 0;
+  background-color: #f8f8f8;
+  height: 100%;
+  .head {
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+  .product_box {
+    padding-bottom: 5px;
+    .product__head {
+      text-align: center;
+      a {
+        font-size: 24px;
+        text-decoration: none;
+        color: $basic-color;
+        
+      }
+    }
+  }
+}
+
+.pickup__container3 {
+  overflow: scroll;
+  padding: 0 0 80px 0;
+  background-color: #f8f8f8;
+  height: 100%;
+  width: 100%;
+  .head {
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+  .product_box {
+    padding-bottom: 5px;
+    .product__head {
+      text-align: center;
+      a {
+        font-size: 24px;
+        text-decoration: none;
+        color: $basic-color;
+        
       }
     }
   }
@@ -246,7 +299,56 @@
     a {
       background-color: $white;
       display: inline-block;
+      
     }
+
+
+    &--img {
+      width: 220px;
+      height: 150px;
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      z-index: auto;
+      object-fit: cover;
+    }
+    &--body {
+      background-color: $white;
+      color: #333;
+      padding: 16px;
+      .details {
+        ul {
+          display: flex;
+          justify-content: space-between;
+        }
+        p {
+          font-size: 10px;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+.product__lists1 {
+  width: 900px;
+  margin: 26px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .product__list {
+    width: 220px;
+    display: inline-block;
+    &:hover {
+      opacity: 0.5;
+    }
+    a {
+      background-color: $white;
+      display: inline-block;
+      
+    }
+
+
     &--img {
       width: 220px;
       height: 150px;

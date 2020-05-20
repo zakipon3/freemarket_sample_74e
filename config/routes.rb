@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create] do
     collection do
       get "detail"
+      get "list"
     end
 
     collection do
