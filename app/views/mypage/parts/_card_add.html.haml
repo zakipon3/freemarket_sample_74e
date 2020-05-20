@@ -1,0 +1,42 @@
+.mypage__content
+  .card__add__title
+    %p クレジットカード情報入力
+  .card__add__inner
+    .input_form
+      .cards-expire
+        .label
+          カード番号
+          %span{class: "require"} 必須
+        %input{class: "input_text", placeholder: "半角数字のみ"}
+        .card_list
+          = image_tag asset_path("material/icon/visa.svg"), alt: 'test', height: '20px', width: '40px'
+          = image_tag asset_path("material/icon/master-card.svg"), alt: 'test', height: '20px', width: '40px'
+          = image_tag asset_path("material/icon/jcb.svg"), alt: 'test', height: '20px', width: '40px'
+          = image_tag asset_path("material/icon/saison-card.svg"), alt: 'test', height: '20px', width: '40px'
+          = image_tag asset_path("material/icon/american_express.svg"), alt: 'test', height: '20px', width: '40px'
+          = image_tag asset_path("material/icon/discover.svg"), alt: 'test', height: '20px', width: '40px'
+          = image_tag asset_path("material/icon/dinersclub.svg"), alt: 'test', height: '20px', width: '40px'
+      .cards-expire
+        .label
+          有効期限 
+          %span{class: "require"} 必須
+        .cards-expire__wrap
+          %select{class: "range"}
+            %option{value: "0"} --
+            %option{value: "1"} 選択肢1
+            %option{value: "2"} 選択肢2
+            %option{value: "3"} 選択肢3
+          %span.expire-text 月
+          %select{class: "range"}
+            %option{value: "0"} --
+            %option{value: "1"} 選択肢1
+            %option{value: "2"} 選択肢2
+            %option{value: "3"} 選択肢3
+          %span.expire-text 年
+      .cards-expire
+        .label
+          セキュリティーコード
+          %span{class: "require"} 必須
+        %input{class: "input_text", placeholder: "カード背面4桁もしくは3桁の番号"}
+      .add_card
+      = link_to "追加する", card_mypage_index_path, class: 'add_card__btn'
