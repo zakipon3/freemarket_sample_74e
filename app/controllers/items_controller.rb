@@ -2,11 +2,13 @@ class ItemsController < ApplicationController
   before_action :set_params, only: :create
 
   def index
+    @items = Item.all
   end
 
   def new
     @item = Item.new
     @item.images.new
+    @address = Prefecture.all
   end
 
   def create
@@ -19,6 +21,10 @@ class ItemsController < ApplicationController
     else
       redirect_to new_item_path, flash: { error: @item.errors.full_messages }
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   def set_parents
@@ -38,6 +44,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :explanation, :category_id, :size, :brand_name, :condition_id, :delivery_fee_id, :prefecture_id, :days_until_shipping_id, :price, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
-  def detail
+  private
+  def item_params
+    params.require(:item).permit(:title, :content).merge(user_id: current_user.id)
   end
 end

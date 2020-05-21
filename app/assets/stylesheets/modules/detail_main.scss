@@ -93,6 +93,24 @@
         color: white;
       }
     }
+    .item-edit{
+      display: flex;
+      justify-content: space-between;
+      a{
+        margin: 0 auto;
+        margin-top: 30px;
+        text-align: center;
+        display: block;
+        height: 48px;
+        width: 30%;
+        background-color: #3ccace;
+        border: 1px solid #3ccace;
+        line-height: 48px;
+        color: white;
+        font-size: 18px;
+        border-radius: 100px;
+      }
+    }
     .explanation {
       font-size: 18px;
       text-align: center;
