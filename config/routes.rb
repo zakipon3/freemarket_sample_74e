@@ -19,7 +19,8 @@ Rails.application.routes.draw do
       get "purchase"
     end
   end
-
+  
+  
   resources :users, only: [:new, :edit, :show] do
     collection do
       get "touroku"

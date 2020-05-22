@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.where(status_id: '1').order(created_at: :desc)
+    
   end
 
   def new
@@ -20,6 +21,11 @@ class ItemsController < ApplicationController
     else
       redirect_to new_item_path, flash: { error: @item.errors.full_messages }
     end
+  end
+
+
+  def list
+    @items = Item.all.where(status_id: '1').order(created_at: :desc)
   end
 
   def set_parents
@@ -45,7 +51,4 @@ class ItemsController < ApplicationController
   def detail
   end
 
-  def list
-    @items = Item.all.where(status_id: '1').order(created_at: :desc)
-  end
 end

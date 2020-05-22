@@ -85,10 +85,9 @@
       .product__head
         =link_to "もっと見る", list_items_path
       .product__lists
-        .product__list
-        - @items[0..3].each do |item|
-          =link_to detail_items_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"), class: "product__list--img"
+        - @items[0..2].each do |item|
+          =link_to item_path(item.id) do
+            =image_tag ("#{item.images.first.image}"), class: "product__list--img"   
             .product__list--body
               %h3= item.name
               .details
@@ -98,21 +97,20 @@
                     =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)
-    
-  .pickup__container2
-    .product_box
-      .product__head
-      .product__lists
-        .product__list
-        - @items[4..7].each do |item|
-          =link_to detail_items_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"), class: "product__list--img"
-            .product__list--body
-              %h3= item.name
-              .details
-                %ul
-                  %li= "¥" + item.price.to_s
-                  %li
-                    =icon("fas", "star", class: "likeIcon")
-                    0
-                %p (税込)
+  - if @items.length > 3
+    .pickup__container2
+      .product_box
+        .product__head
+        .product__lists
+          - @items[3..5].each do |item|
+            =link_to detail_items_path do
+              =image_tag ("#{item.images.first.image}"), class: "product__list--img" 
+              .product__list--body
+                %h3= item.name
+                .details
+                  %ul
+                    %li= "¥" + item.price.to_s
+                    %li
+                      =icon("fas", "star", class: "likeIcon")
+                      0
+                  %p (税込)
