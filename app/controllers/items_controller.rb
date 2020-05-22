@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   before_action :set_params, only: :create
 
   def index
+    @items = Item.all.where(status_id: '1').order(created_at: :desc)
+    
   end
 
   def new
@@ -21,6 +23,11 @@ class ItemsController < ApplicationController
     end
   end
 
+
+  def list
+    @items = Item.all.where(status_id: '1').order(created_at: :desc)
+  end
+
   def set_parents
     @parents  = Category.where(ancestry: nil)
   end
@@ -38,6 +45,10 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :explanation, :category_id, :size, :brand_name, :condition_id, :delivery_fee_id, :prefecture_id, :days_until_shipping_id, :price, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
+  def show
+  end
+
   def detail
   end
+
 end
