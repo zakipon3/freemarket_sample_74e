@@ -3,14 +3,11 @@
     %h1.name
       = @item.name
     .main
+      = image_tag @image.image.to_s, alt: "image",size:'250x250', id:'pic1', class:'main-image'
       %ul
-        %li
-          = image_tag src='a007.png', alt: "image",size:'560x346', id:'pic1', class:'main-image'
-          %ul
-            %li
-              = image_tag src='a007.png', alt: "image",size:'140x87', id:'pic1', class:'image'
-              = image_tag src='a001.png', alt: "image",size:'140x87', id:'pic2', class:'image'
-              = image_tag src='a003.png', alt: "image",size:'140x87', id:'pic3', class:'image'
+        -@item.images.each do |image|
+          %li
+            = image_tag image.image_url, alt: "image",size:'80x80', id:'pic1', class:'sub-image'
     .fee
       %span.price
         ¥
@@ -25,16 +22,16 @@
         %th.menu
           出品者
         %td
-          hoge
+          = @item.buyer.nickname
       %tr
         %th
           カテゴリー
         %td
-          ベビー・キッズ
+          = @item.category.name
           %br
-          ベビー服(男女兼用)~95cm
+          = @item.category.parent.name
           %br
-          アウター
+          = @item.category.parent.parent.name
       %tr
         %th
           ブランド
@@ -74,12 +71,15 @@
       .item-button-right
         = link_to "🏴 不適切な商品の報告", "#", class: "report"
 
-    .purchase
-      = link_to "購入する", "#", class: "purchase"
+    - if user_signed_in? && current_user.id == @item.buyer_id
+      .item-edit
+        = link_to "商品編集", edit_item_path, class: "edit"
+        = link_to "商品削除", "#", class: "delete"
+
+    -else
+      .purchase
+        = link_to "購入する", "#", class: "purchase"
     
-    .item-edit
-      = link_to "商品編集", "#", class: "edit"
-      = link_to "商品削除", "#", class: "delete"
 
   .detail__contents__center
     .detail__center-comment

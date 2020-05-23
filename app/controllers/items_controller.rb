@@ -1,14 +1,15 @@
 class ItemsController < ApplicationController
   before_action :set_params, only: :create
+  before_action :set_category
 
   def index
     @items = Item.all
+    @items = Item.includes(:images).order('created_at DESC')
   end
 
   def new
     @item = Item.new
     @item.images.new
-    @address = Prefecture.all
   end
 
   def create
@@ -25,6 +26,12 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @item_images = @item.images
+    @image = @item_images.first
+  end
+
+  def edit
+    @item = Item.find(params[:id])
   end
 
   def set_parents
@@ -39,6 +46,10 @@ class ItemsController < ApplicationController
     @grandchildren = Category.where(ancestry: params[:ancestry])
   end
 
+  def set_category
+    @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
+  end
+
   private
   def set_params
     params.require(:item).permit(:name, :explanation, :category_id, :size, :brand_name, :condition_id, :delivery_fee_id, :prefecture_id, :days_until_shipping_id, :price, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
@@ -48,4 +59,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:title, :content).merge(user_id: current_user.id)
   end
+
 end

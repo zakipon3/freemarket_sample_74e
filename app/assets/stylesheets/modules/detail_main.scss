@@ -37,19 +37,32 @@
     }
     .main {
       margin: 16px 0 0;
-      display: flex;
+      width: 700px;
+      flex-wrap: wrap;
+      max-width: 50%;
+      margin: 0 auto;
+      text-align: center;
       ul {
         display: flex;
         position: relative;
         list-style: none;
+        flex-wrap: wrap;
+        width: 250px;
         li {
           flex-direction: column;
-          width: 560px;
           align-items: center;
           margin: 0 auto;
           .main-image {
             object-fit: cover;
             height: 346px;
+            display: block;
+            justify-content: center;
+          }
+          .sub-image {
+            object-fit: cover;
+            height: 50px;
+            width: 50px;
+            display: block;
           }
           ul {
             display: flex;
