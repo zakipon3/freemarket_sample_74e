@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_params, only: :create
   before_action :set_category
+  before_action :set_item, only: [:show, :edit]
 
   def index
     @items = Item.all.where(status_id: '1').order(created_at: :desc)
@@ -24,17 +25,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @item_images = @item.images
     @image = @item_images.first
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def list
-    @items = Item.all.where(status_id: '1').order(created_at: :desc)
+    @items = Item.where(status_id: '1').order(created_at: :desc)
   end
 
   def set_parents
@@ -56,5 +55,9 @@ class ItemsController < ApplicationController
   private
   def set_params
     params.require(:item).permit(:name, :explanation, :category_id, :size, :brand_name, :condition_id, :delivery_fee_id, :prefecture_id, :days_until_shipping_id, :price, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
