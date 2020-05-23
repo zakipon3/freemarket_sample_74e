@@ -3,10 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_category
 
   def index
-    @items = Item.all
-    @items = Item.includes(:images).order('created_at DESC')
     @items = Item.all.where(status_id: '1').order(created_at: :desc)
-    
   end
 
   def new
@@ -58,11 +55,6 @@ class ItemsController < ApplicationController
   private
   def set_params
     params.require(:item).permit(:name, :explanation, :category_id, :size, :brand_name, :condition_id, :delivery_fee_id, :prefecture_id, :days_until_shipping_id, :price, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
-  end
-
-  private
-  def item_params
-    params.require(:item).permit(:title, :content).merge(user_id: current_user.id)
   end
 end
 end
