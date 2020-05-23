@@ -80,87 +80,37 @@
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
   .pickup__container
-    %h2.head ピックアップカテゴリー
+    %h2.head 新規投稿商品
     .product_box
       .product__head
-        =link_to "新規投稿商品", root_path
+        =link_to "もっと見る", list_items_path
       .product__lists
-        .product__list
-          =link_to item_path(4) do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"), class: "product__list--img"
+        - @items[0..2].each do |item|
+          =link_to item_path(item.id) do
+            =image_tag ("#{item.images.first.image}"), class: "product__list--img"   
             .product__list--body
-              %h3.name product1
+              %h3= item.name
               .details
                 %ul
-                  %li 30000円
+                  %li= "¥" + item.price.to_s
                   %li
                     =icon("fas", "star", class: "likeIcon")
                     0
                 %p (税込)
-        .product__list
-          =link_to detail_items_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"), class: "product__list--img"
-            .product__list--body
-              %h3.name product2
-              .details
-                %ul
-                  %li 20000円
-                  %li
-                    =icon("fas", "star", class: "likeIcon")
-                    0
-                %p (税込)
-        .product__list
-          =link_to detail_items_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"), class: "product__list--img"
-            .product__list--body
-              %h3.name product1
-              .details
-                %ul
-                  %li 10000円
-                  %li
-                    =icon("fas", "star", class: "likeIcon")
-                    0
-                %p (税込)
-
-  .pickup__container
-    %h2.head ピックアップブランド
-    .product_box
-      .product__head
-        =link_to "アーカイバ", root_path
-      .product__lists
-        .product__list
-          =link_to detail_items_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"), class: "product__list--img"
-            .product__list--body
-              %h3.name product3
-              .details
-                %ul
-                  %li 30000円
-                  %li
-                    =icon("fas", "star", class: "likeIcon")
-                    0
-                %p (税込)
-        .product__list
-          =link_to detail_items_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"), class: "product__list--img"
-            .product__list--body
-              %h3.name product2
-              .details
-                %ul
-                  %li 20000円
-                  %li
-                    =icon("fas", "star", class: "likeIcon")
-                    0
-                %p (税込)
-        .product__list
-          =link_to detail_items_path do
-            =image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"), class: "product__list--img"
-            .product__list--body
-              %h3.name product1
-              .details
-                %ul
-                  %li 10000円
-                  %li
-                    =icon("fas", "star", class: "likeIcon")
-                    0
-                %p (税込)
+  - if @items.length > 3
+    .pickup__container2
+      .product_box
+        .product__head
+        .product__lists
+          - @items[3..5].each do |item|
+            =link_to detail_items_path do
+              =image_tag ("#{item.images.first.image}"), class: "product__list--img" 
+              .product__list--body
+                %h3= item.name
+                .details
+                  %ul
+                    %li= "¥" + item.price.to_s
+                    %li
+                      =icon("fas", "star", class: "likeIcon")
+                      0
+                  %p (税込)

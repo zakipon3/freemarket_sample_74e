@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.all.where(status_id: '1').order(created_at: :desc)
+    
   end
 
   def new
@@ -32,6 +34,9 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+
+  def list
+    @items = Item.all.where(status_id: '1').order(created_at: :desc)
   end
 
   def set_parents
@@ -59,5 +64,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:title, :content).merge(user_id: current_user.id)
   end
-
+end
 end

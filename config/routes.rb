@@ -15,10 +15,12 @@ Rails.application.routes.draw do
       get "set_children"
       get "set_grandchildren"
       get "detail"
+      get "list"
       get "purchase"
     end
   end
-
+  
+  
   resources :users, only: [:new, :edit, :show] do
     collection do
       get "touroku"
