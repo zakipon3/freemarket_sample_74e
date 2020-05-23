@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+  end
 
   def list
     @items = Item.all.where(status_id: '1').order(created_at: :desc)
@@ -56,5 +57,4 @@ class ItemsController < ApplicationController
   def set_params
     params.require(:item).permit(:name, :explanation, :category_id, :size, :brand_name, :condition_id, :delivery_fee_id, :prefecture_id, :days_until_shipping_id, :price, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
-end
 end
