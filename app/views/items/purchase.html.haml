@@ -28,8 +28,9 @@
           東淀川区豊里1-2-3（908）
           %p 當眞　和博
         .purchase-wrapper__main__title__text.light.width
-        .purchase__wrapper__submit
-          = f.submit "購入する", class: "purchase__wrapper__submit__button"
+        -# = form_with url: purchase_item_path do
+        -#   :plain
+        -#     <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="公開鍵"></script>
         %p.caution ※郵便局/コンビニ受取をご希望の方は、購入後に取引画面から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
 
 = render "/items/templates/subfooter"

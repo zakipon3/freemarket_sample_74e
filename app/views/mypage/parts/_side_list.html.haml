@@ -1,7 +1,7 @@
 .side
   %ul.side__list
     %li.btn
-      = link_to mypage_index_path do
+      = link_to mypage_index_path(current_user) do
         .text マイページ
         =icon("fas", "chevron-right", class: "arrow")
     %li.btn
@@ -31,14 +31,14 @@
         .text 発送元・お届け先住所変更
         =icon("fas", "chevron-right", class: "arrow")
     %li.btn
-      = link_to card_mypage_index_path do
+      = link_to card_mypage_index_path(current_user) do
         .text 支払い方法
         =icon("fas", "chevron-right", class: "arrow")
     %li.btn
-      = link_to edit_user_password_path do
+      = link_to do
         .text パスワード
         =icon("fas", "chevron-right", class: "arrow")
     %li.btn
-      = link_to logout_mypage_index_path do
+      = link_to logout_mypage_index_path(current_user) do
         .text ログアウト
         =icon("fas", "chevron-right", class: "arrow")
