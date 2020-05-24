@@ -4,7 +4,6 @@ $(function(){
   var editIndex = 10;
   var request = $("#image-area").attr("action");
   if(request != undefined && request.indexOf("edit") != -1){
-    console.log("ここ");
     $.ajax({
       url: "/items/set_images",
       data: {id:request.replace(/[^0-9]/g, '')},
