@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_params, only: :create
   before_action :set_category
-  before_action :set_item, only: [:show, :edit]
+  before_action :set_item, only: [:show, :edit, :destroy]
 
   def index
     @items = Item.all.where(status_id: '1').order(created_at: :desc)
@@ -30,6 +30,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to root_path
   end
 
   def list
