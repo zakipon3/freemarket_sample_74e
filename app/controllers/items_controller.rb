@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_params, only: :create
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_category
 
   def index
@@ -46,6 +46,16 @@ class ItemsController < ApplicationController
   def show
     @item_images = @item.images
     @image = @item_images.first
+  end
+
+  def destroy
+    if @item.seller_id == current_user.id
+      if @item.destroy
+        redirect_to root_path, notice: "削除が完了しました"
+      else
+        redirect_to root_path, alert: "削除に失敗しました"
+      end
+    end
   end
 
   def list
