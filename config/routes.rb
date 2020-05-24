@@ -16,9 +16,30 @@ Rails.application.routes.draw do
       get "set_grandchildren"
       get "set_images"
       get "detail"
+      get "list"
       get "purchase"
     end
   end
+  
+  
+  resources :users, only: [:new, :edit, :show] do
+    collection do
+      get "touroku"
+    end
+  end
+
+  resources :mypage, only: [:index, :show, :new, :edit, :create] do
+
+    collection do
+      get "logout"
+    end
+    
+    collection do
+      get "card"
+    end
+  end
+
 
   resources :users, only: [:edit, :update]
+
 end

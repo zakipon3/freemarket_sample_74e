@@ -1,0 +1,16 @@
+.pickup__container3
+  %h2.head 投稿商品一覧
+  .product_box
+    .product__lists1
+      - @items.each do |item|    
+        =link_to item_path(item.id) do
+          =image_tag ("#{item.images.first.image}"), class: "product__list--img"   
+          .product__list--body
+            %h3= item.name
+            .details
+              %ul
+                %li= "¥" + item.price.to_s
+                %li
+                  =icon("fas", "star", class: "likeIcon")
+                  0
+              %p (税込)
