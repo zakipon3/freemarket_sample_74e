@@ -33,9 +33,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+  if @item.seller_id == current_user.id
+    if @item.destroy
+      redirect_to root_path, notice: "削除が完了しました"
+    else
+      redirect_to root_path, alert: "削除に失敗しました"
+    end
   end
+end
 
   def list
     @items = Item.where(status_id: '1').order(created_at: :desc)
