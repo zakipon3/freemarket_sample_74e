@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_fee
   belongs_to_active_hash :days_until_shipping
 
-  belongs_to :category
+  belongs_to :category, optional: true
   belongs_to :buyer, class_name: "User", foreign_key: "buyer_id", optional: true
   belongs_to :seller, class_name: "User", foreign_key: "seller_id", optional: true
 

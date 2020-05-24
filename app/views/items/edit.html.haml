@@ -1,0 +1,94 @@
+= render "/items/templates/subheader"
+
+.exhibit
+  = form_with model: @item, local: true do |f|
+    .exhibit__wrapper
+      .exhibit__wrapper__itemimage
+        - if flash[:error].present?
+          .alert
+            %ul
+              - flash[:error].each do |message|
+                %li= message
+        .exhibit__wrapper__itemimage__label
+          %label#label 出品画像
+          %span#require 必須
+        .exhibit__wrapper__itemimage__text
+          %p 最大10枚までアップロードできます
+        .exhibit__wrapper__itemimage__flexbox
+          .exhibit__wrapper__itemimage__flexbox__imagearea
+          %label{id: "image-area", action: request.path}
+            .exhibit__wrapper__itemimage__flexbox__imagearea__field
+              =icon("fas", "camera")
+              .exhibit__wrapper__itemimage__flexbox__imagearea__text
+                クリックしてファイルをアップロード
+            = f.fields_for :images do |i|
+              = i.file_field :image, {class: "file-field"}
+              = i.check_box :_destroy, class: "hidden"
+
+      .exhibit__wrapper__itemname
+        .exhibit__wrapper__itemname__label
+          %label#label 商品名
+          %span#require 必須
+        = f.text_field :name, class: "exhibit__wrapper__itemname__textbox", placeholder: "40文字まで"
+        .exhibit__wrapper__itemname__label
+          %label#label 商品の説明
+          %span#require 必須
+        = f.text_area :explanation, class: "exhibit__wrapper__itemname__textarea", placeholder: "商品の説明（必須）\n（色、素材、重さ、定価、注意点など）"
+
+      .exhibit__wrapper__itemdetail
+        .exhibit__wrapper__itemdetail__label
+          %label#headline 商品の詳細
+        .exhibit__wrapper__itemdetail__label
+          %label#label カテゴリー
+          %span#require 必須
+        #category-edit
+          = f.collection_select :category_id, @category, :id, :name, {prompt: "選択してください", selected: @item.category.parent.parent.id}, { class: "exhibit__wrapper__itemdetail__selectbox select-parent", id: "parent_category" ,name: "item[category_id]"}
+          = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: "exhibit__wrapper__itemdetail__selectbox select-child", id: "child_category"}
+          = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: "exhibit__wrapper__itemdetail__selectbox select-grandchild", id: "grandchild_category"}
+        .exhibit__wrapper__itemdetail__label
+          %label#label サイズ
+          %span#optional 任意
+        = f.text_field :size, class: "exhibit__wrapper__itemdetail__textbox", placeholder: "入力してください"
+        .exhibit__wrapper__itemdetail__label
+          %label#label ブランド
+          %span#optional 任意
+        = f.text_field :brand_name, class: "exhibit__wrapper__itemdetail__textbox", placeholder: "例）シャネル"
+        .exhibit__wrapper__itemdetail__label
+          %label#label 商品の状態
+          %span#require 必須
+        = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, class: "exhibit__wrapper__itemdetail__selectbox"
+
+      .exhibit__wrapper__itemdelivery
+        .exhibit__wrapper__itemdelivery__label
+          %label#headline 配送について
+        .exhibit__wrapper__itemdelivery__label
+          %label#label 配送料の負担
+          %span#require 必須
+        = f.collection_select :delivery_fee_id, DeliveryFee.all, :id, :name, {prompt: "選択してください"}, class: "exhibit__wrapper__itemdelivery__selectbox"
+        .exhibit__wrapper__itemdelivery__label
+          %label#label 発送元の地域
+          %span#require 必須
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, class: "exhibit__wrapper__itemdelivery__selectbox"
+        .exhibit__wrapper__itemdelivery__label
+          %label#label 発送までの日数
+          %span#require 必須
+        = f.collection_select :days_until_shipping_id, DaysUntilShipping.all, :id, :name, {prompt: "選択してください"}, class: "exhibit__wrapper__itemdelivery__selectbox"
+
+      .exhibit__wrapper__itemprice
+        .exhibit__wrapper__itemprice__label
+          %label#headline 価格（¥300〜9,999,999）
+        .exhibit__wrapper__itemprice__area
+          .exhibit__wrapper__itemprice__area__left
+            %label#label 販売価格
+            %span#require 必須
+          .exhibit__wrapper__itemprice__area__right
+            %p ¥
+            = f.text_field :price, class: "exhibit__wrapper__itemprice__area__right__textbox", placeholder: "金額を入力してください"
+
+      .exhibit__wrapper__submit
+        = f.submit "変更を確定する", class: "exhibit__wrapper__submit__button"
+        = link_to "もどる", root_path, class: "exhibit__wrapper__submit__return"
+      .exhibit__wrapper__coution
+        %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります
+
+= render "/items/templates/subfooter"

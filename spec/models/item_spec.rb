@@ -86,4 +86,89 @@ RSpec.describe Item, type: :model do
       expect(item_no_image.errors[:images]).to include("can't be blank")
     end
   end
+
+  describe '#update' do
+    it "商品名(name)がない場合は更新できないこと" do
+      item = build(:item_edit)
+      item.update(name: "")
+      item.valid?
+      expect(item.errors[:name]).to include("can't be blank")
+    end
+
+    it "商品名(name)が40文字を超える場合は更新できないこと" do
+      item = build(:item_edit)
+      item.update(name: "あああああいいいいいうううううえええええおおおおおあああああいいいいいうううううえ")
+      item.valid?
+      expect(item.errors[:name]).to include("is too long (maximum is 40 characters)")
+    end
+
+    it "販売価格(price)がない場合は更新できないこと" do
+      item = build(:item_edit)
+      item.update(price: "")
+      item.valid?
+      expect(item.errors[:price]).to include("can't be blank")
+    end
+
+    it "販売価格(price)が300円未満の場合は更新できないこと" do
+      item = build(:item_edit)
+      item.update(price: 299)
+      item.valid?
+      expect(item.errors[:price]).to include("must be greater than or equal to 300")
+    end
+
+    it "販売価格(price)が10,000,000円以上の場合は更新できないこと" do
+      item = build(:item_edit)
+      item.update(price: 10000000)
+      item.valid?
+      expect(item.errors[:price]).to include("must be less than or equal to 9999999")
+    end
+
+    it "説明(explanation)がない場合は更新できないこと" do
+      item = build(:item_edit)
+      item.update(explanation: "")
+      item.valid?
+      expect(item.errors[:explanation]).to include("can't be blank")
+    end
+
+    it "カテゴリ(category_id)がない場合は更新できないこと" do
+      item = build(:item_edit)
+      item.update(category_id: "")
+      item.valid?
+      expect(item.errors[:category_id]).to include("can't be blank")
+    end
+
+    it "商品の状態(condition_id)がない場合は更新できないこと" do
+      item = build(:item_edit)
+      item.update(condition_id: "")
+      item.valid?
+      expect(item.errors[:condition_id]).to include("can't be blank")
+    end
+
+    it "配送料の負担(delivery_fee_id)がない場合は更新できないこと" do
+      item = build(:item_edit)
+      item.update(delivery_fee_id: "")
+      item.valid?
+      expect(item.errors[:delivery_fee_id]).to include("can't be blank")
+    end
+
+    it "発送元の地域(prefecture_id)がない場合は更新できないこと" do
+      item = build(:item_edit)
+      item.update(prefecture_id: "")
+      item.valid?
+      expect(item.errors[:prefecture_id]).to include("can't be blank")
+    end
+
+    it "発送までの日数(days_until_shipping_id)がない場合は更新できないこと" do
+      item = build(:item_edit)
+      item.update(days_until_shipping_id: "")
+      item.valid?
+      expect(item.errors[:days_until_shipping_id]).to include("can't be blank")
+    end
+
+    it "画像(image)がない場合は更新できないこと" do
+      item = build(:item_edit_no_image)
+      item.valid?
+      expect(item.errors[:images]).to include("can't be blank")
+    end
+  end
 end
