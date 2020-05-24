@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_params, only: :create
   before_action :set_category
-  before_action :set_item, only: [:show, :edit]
+  before_action :set_item, only: [:show, :edit, :destroy]
 
   def index
     @items = Item.all.where(status_id: '1').order(created_at: :desc)
@@ -31,6 +31,16 @@ class ItemsController < ApplicationController
 
   def edit
   end
+
+  def destroy
+  if @item.seller_id == current_user.id
+    if @item.destroy
+      redirect_to root_path, notice: "削除が完了しました"
+    else
+      redirect_to root_path, alert: "削除に失敗しました"
+    end
+  end
+end
 
   def list
     @items = Item.where(status_id: '1').order(created_at: :desc)

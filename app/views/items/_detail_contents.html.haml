@@ -74,7 +74,7 @@
     - if user_signed_in? && current_user.id == @item.seller_id
       .item-edit
         = link_to "商品編集", edit_item_path, class: "edit"
-        = link_to "商品削除", "#", class: "delete"
+        = link_to "商品削除", item_path(@item.id), method: :delete, data: {confirm: "本当に削除しますか？"}
 
     -else
       .purchase
