@@ -22,7 +22,7 @@
         %th.menu
           出品者
         %td
-          = @item.buyer.nickname
+          = @item.seller.nickname
       %tr
         %th
           カテゴリー
@@ -71,7 +71,7 @@
       .item-button-right
         = link_to "🏴 不適切な商品の報告", "#", class: "report"
 
-    - if user_signed_in? && current_user.id == @item.buyer_id
+    - if user_signed_in? && current_user.id == @item.seller_id
       .item-edit
         = link_to "商品編集", edit_item_path, class: "edit"
         = link_to "商品削除", "#", class: "delete"
