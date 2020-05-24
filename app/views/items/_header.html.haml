@@ -1,3 +1,4 @@
+#request{action: request.path}
 .hp__header
   .hp__header__inner
     .header__box
@@ -22,7 +23,7 @@
             = link_to "ログアウト", destroy_user_session_path, method: :delete
           %li.listsRight__item
             = link_to "マイページ"
-        - else    
+        - else
           %li.listsRight__item
             = link_to "ログイン", new_user_session_path
           %li.listsRight__item
