@@ -87,7 +87,7 @@
       .product__lists
         - @items[0..2].each do |item|
           =link_to item_path(item.id) do
-            =image_tag ("#{item.images.first.image}"), class: "product__list--img"   
+            =image_tag ("#{item.images.first.image}"), class: "product__list--img"
             .product__list--body
               %h3= item.name
               .details
@@ -103,8 +103,8 @@
         .product__head
         .product__lists
           - @items[3..5].each do |item|
-            =link_to detail_items_path do
-              =image_tag ("#{item.images.first.image}"), class: "product__list--img" 
+            =link_to item_path(item.id) do
+              =image_tag ("#{item.images.first.image}"), class: "product__list--img"
               .product__list--body
                 %h3= item.name
                 .details
