@@ -64,14 +64,11 @@ class CreditcardsController < ApplicationController
     end
   end
 
-  def destroy     
-    # 今回はクレジットカードを削除するだけでなく、PAY.JPの顧客情報も削除する。これによりcreateメソッドが複雑にならない。
-    # PAY.JPの秘密鍵をセットして、PAY.JPから情報をする。
+  def destroy
     Payjp.api_key = Rails.application.credentials.pay_jp[:payjp_private_key]
-    # PAY.JPの顧客情報を取得
     customer = Payjp::Customer.retrieve(@card.customer_id)
-    customer.delete # PAY.JPの顧客情報を削除
-    if @card.destroy # App上でもクレジットカードを削除
+    customer.delete
+    if @card.destroy
       redirect_to action: "index", notice: "削除しました"
     else
       redirect_to action: "index", alert: "削除できませんでした"
