@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       get "set_parents"
       get "set_children"
       get "set_grandchildren"
+      get "set_images"
       get "detail"
+      get "list"
       get "purchase"
     end
   end

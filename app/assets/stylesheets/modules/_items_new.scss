@@ -43,6 +43,10 @@
         margin-top: 16px;
         line-height: 1.4em;
       }
+      .attention {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
       &__flexbox {
         display: flex;
         flex-wrap: wrap;
@@ -81,15 +85,31 @@
               height: 160px;
               object-fit: cover;
             }
-            &__delete-btn{
+            .btn-flexbox{
+              display: flex;
+            }
+            .delete-btn{
               text-shadow: 0 0 2px white;
               cursor: pointer;
-              position: absolute;
               top: 0px;
+              width: 15px;
+            }
+            .label-edit-btn{
+              cursor: pointer;
+              margin-left: 10px;
+              text-shadow: 0 0 2px white;
+            }
+            .edit-btn{
+              cursor: pointer;
+              margin-left: 10px;
+              text-shadow: 0 0 2px white;
             }
           }
         }
         .file-field {
+          display: none;
+        }
+        .hidden {
           display: none;
         }
       }

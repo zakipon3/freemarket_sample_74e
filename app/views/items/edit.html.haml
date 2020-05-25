@@ -1,7 +1,7 @@
 = render "/items/templates/subheader"
 
 .exhibit
-  = form_with model: @item, url: items_path, local: true do |f|
+  = form_with model: @item, local: true do |f|
     .exhibit__wrapper
       .exhibit__wrapper__itemimage
         - if flash[:error].present?
@@ -23,6 +23,7 @@
                 クリックしてファイルをアップロード
             = f.fields_for :images do |i|
               = i.file_field :image, {class: "file-field"}
+              = i.check_box :_destroy, class: "hidden"
 
       .exhibit__wrapper__itemname
         .exhibit__wrapper__itemname__label
@@ -40,7 +41,10 @@
         .exhibit__wrapper__itemdetail__label
           %label#label カテゴリー
           %span#require 必須
-        #category-select
+        #category-edit
+          = f.collection_select :category_id, @category, :id, :name, {prompt: "選択してください", selected: @item.category.parent.parent.id}, { class: "exhibit__wrapper__itemdetail__selectbox select-parent", id: "parent_category" ,name: "item[category_id]"}
+          = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: "exhibit__wrapper__itemdetail__selectbox select-child", id: "child_category"}
+          = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: "exhibit__wrapper__itemdetail__selectbox select-grandchild", id: "grandchild_category"}
         .exhibit__wrapper__itemdetail__label
           %label#label サイズ
           %span#optional 任意
@@ -82,7 +86,7 @@
             = f.text_field :price, class: "exhibit__wrapper__itemprice__area__right__textbox", placeholder: "金額を入力してください"
 
       .exhibit__wrapper__submit
-        = f.submit "出品する", class: "exhibit__wrapper__submit__button"
+        = f.submit "変更を確定する", class: "exhibit__wrapper__submit__button"
         = link_to "もどる", root_path, class: "exhibit__wrapper__submit__return"
       .exhibit__wrapper__coution
         %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります
