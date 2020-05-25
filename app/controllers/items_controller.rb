@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_params, only: :create
-  before_action :set_item, only: [:show, :edit, :update, :destroy, :purchase]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :purchase, :pay, :done]
+  before_action :authenticate_user!, only:[:purchase]
   before_action :set_category
   require "payjp"
 
@@ -76,31 +77,41 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    if user_signed_in?
-      @card = Creditcard.find_by(user_id: current_user.id)
+    @card = Creditcard.find_by(user_id: current_user.id)
+    if @item.seller_id == current_user.id
+      redirect_to root_path
+    else
       if @card.blank?
-        redirect_to card_mypage_index_path, alert: "カードを登録してください"
+        flash[:alert] = '購入前にクレジットカードの登録をしてください'
+        redirect_to card_mypage_index_path
       else
+        @item_images = @item.images
+        @image = @item_images.first
+        @address = Address.where(user_id: current_user.id).first
         Payjp.api_key = Rails.application.credentials.pay_jp[:payjp_private_key]
-        #保管した顧客IDでpayjpから情報取得
         customer = Payjp::Customer.retrieve(@card.customer_id) 
-        #カード情報表示のためインスタンス変数に代入
         @default_card_information = customer.cards.retrieve(@card.card_id)
       end
-    else
-      redirect_to user_session_path, alert: "ログインしてください"
     end
   end
 
-  # def pay
-  #   Payjp.api_key = Rails.application.credentials.pay_jp[:payjp_private_key]
-  #   Payjp::Charge.create(
-  #     amount: @item.price, #支払金額を引っ張ってくる
-  #     customer: @card.customer_id,  #顧客ID
-  #     currency: 'jpy',              #日本円
-  #   )
-  #   redirect_to done_item_buyers_path
-  #   end
+  def done
+    
+  end
+
+  def pay
+    @card = Creditcard.find_by(user_id: current_user.id)
+    @item_images = @item.images
+    @image = @item_images.first
+    Payjp.api_key = Rails.application.credentials.pay_jp[:payjp_private_key]
+    Payjp::Charge.create(
+      amount: @item.price, #支払金額を引っ張ってくる
+      customer: @card.customer_id,  #顧客ID
+      currency: 'jpy',              #日本円
+    )
+    redirect_to done_item_path
+    end
+
   def set_images
     @images = Image.where(item_id: params[:id])
   end
@@ -115,12 +126,8 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(2)
-    @image = Image.find(2)
-    # @item = Item.find(params[:item_id])
-  end
-
-  def set_item
+    # binding.pry
     @item = Item.find(params[:id])
   end
+
 end
