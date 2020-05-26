@@ -1,63 +1,61 @@
-.purchase-wrapper{
+@mixin purchasebtn {
+  background-color: $basic-color;
+  color: #fff;
+  height: 50px;
+  width: 100%;
+  border-radius: 4px;
+  line-height: 50px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.purchase-wrapper {
   background-color: #eee;
   padding: 40px 0;
-  &__main{
+  &__main {
     width: 720px;
     padding-bottom: 30px;
     background-color: white;
     margin: 0 auto;
-    &__title{
+    &__title {
       margin: 0 auto;
       font-size: 20px;
       font-weight: bold;
       padding: 20px 0px;
       width: 300px;
       justify-content: space-between;
-      &__text{
+      &__text {
         text-align: center;
+        a {
+          @include purchasebtn;
+        }
       }
-      .light{
-        font-size: 14px;
-        padding-top: 6px;
-        position: relative;
-        font-weight: normal;
-      }
-      .space{
-        padding-right: 56px;
-      }
-      .width{
-        width: 170px;
-        font-size: 12px;
-      }
-      .center{
-        margin: 0 auto;
-      }
-      img{
+      .main-image {
         position: absolute;
         top: 0;
         right: 0;
         height: 30px;
       }
     }
-    &__contents{
+    &__contents {
       width: 300px;
       margin: 0 auto;
       padding: 20px 0;
       display: flex;
       align-items: center;
       justify-content: space-around;
-      &__left{
+      &__left {
         width: 140px;
         height: 100px;
         object-fit: cover;
       }
-      &__right{
+      &__right {
         width: 140px;
         font-size: 14px;
         line-height: 24px;
       }
     }
-    &__pay-btn{
+    &__pay-btn {
       display: block;
       margin: 0 auto;
       text-align: center;
@@ -65,29 +63,22 @@
       padding: 10px;
       width: 300px;
     }
-    .border{
+    .border {
       border-bottom: 1px solid #eee;
     }
-    .purchase-wrapper__main__title{
-      .price-box{
+    .purchase-wrapper__main__title {
+      .price-box {
         display: flex;
         justify-content: space-between;
       }
-      .purchase__wrapper__submit{
+      .purchase__wrapper__submit {
         text-align: center;
         margin-top: 10px;
-      &__button {
-        background-color: #3CCACE;
-        color: #fff;
-        height: 50px;
-        width: 100%;
-        border-radius: 4px;
-        line-height: 50px;
-        font-size: 17px;
-        font-weight: 600;
-        cursor: pointer;
+        &__button {
+          @include purchasebtn;
+          cursor: pointer;
+        }
       }
-     }
     }
     .caution {
       font-size: 5px;

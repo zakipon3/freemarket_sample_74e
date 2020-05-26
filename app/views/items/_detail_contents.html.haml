@@ -1,74 +1,67 @@
 .detail__contents
   .detail__contents__top
     %h1.name
-      product3
+      = @item.name
     .main
+      = image_tag @image.image.to_s, alt: "image",size:'250x250', id:'pic1', class:'main-image'
       %ul
-        %li
-          = image_tag src='a007.png', alt: "image",size:'560x346', id:'pic1', class:'main-image'
-          %ul
-            %li
-              = image_tag src='a007.png', alt: "image",size:'140x87', id:'pic1', class:'image'
-              = image_tag src='a001.png', alt: "image",size:'140x87', id:'pic2', class:'image'
-              = image_tag src='a003.png', alt: "image",size:'140x87', id:'pic3', class:'image'
+        -@item.images.each do |image|
+          %li
+            = image_tag image.image_url, alt: "image",size:'80x80', id:'pic1', class:'sub-image'
     .fee
       %span.price
-        ¥30000
+        ¥
+        = @item.price
       .tax
         (税込)送料込み
     .explanation
       %p
-        親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の
-        二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をし
-        たと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を
-        出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降
-        りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰
-        って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+        = @item.explanation
     %table.item
       %tr
         %th.menu
           出品者
         %td
-          hoge
+          = @item.seller.nickname
       %tr
         %th
           カテゴリー
         %td
-          = link_to "ベビー・キッズ", "#", class: "baby-kids"
+          = @item.category.name
           %br
-          = link_to "ベビー服(男女兼用)~95cm", "#", class: "baby-clothes-95"
+          = @item.category.parent.name
           %br
-          = link_to "アウター", "#", class: "outer"
+          = @item.category.parent.parent.name
       %tr
         %th
           ブランド
         %td
-          
+          = @item.brand_name
       %tr
         %th
           商品のサイズ
         %td
-          
+          = @item.size
       %tr
         %th
           商品の状態
         %td
-          未使用に近い
+          = @item.condition.name
       %tr
         %th
           配送料の負担
         %td
-          送料込み（出品者負担）
+          = @item.delivery_fee.name
       %tr
         %th
           配送元の地域
         %td
-          = link_to "岩手県", "", class: "Prefectures"
+          = @item.prefecture.name
       %tr
         %th
           発送日の目安
         %td
-          4-7日で発送
+          = @item.days_until_shipping.name
 
     .item-button
       .item-button-left
@@ -78,6 +71,13 @@
       .item-button-right
         = link_to "🏴 不適切な商品の報告", "#", class: "report"
 
+    - if user_signed_in? && current_user.id == @item.seller_id
+      .item-edit
+        = link_to "商品編集", edit_item_path, class: "edit", data:{"turbolinks" => false}
+        = link_to "商品削除", item_path(@item.id), method: :delete, data: {confirm: "本当に削除しますか？"}
+    -else
+      .purchase
+        = link_to "購入する", purchase_item_path, class: "purchase"
 
   .detail__contents__center
     .detail__center-comment

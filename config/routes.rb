@@ -14,8 +14,15 @@ Rails.application.routes.draw do
       get "set_parents"
       get "set_children"
       get "set_grandchildren"
+      get "set_images"
       get "detail"
+      get "list"
+    end
+
+    member do
       get "purchase"
+      post "pay"
+      patch "done"
     end
   end
 
