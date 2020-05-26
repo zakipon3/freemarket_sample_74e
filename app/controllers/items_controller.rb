@@ -93,7 +93,10 @@ class ItemsController < ApplicationController
   def purchase
     if @item.seller_id == current_user.id
       redirect_to root_path
-    else
+      else
+        unless @item.status_id == 1
+          redirect_to root_path, notice: "購入済みです"
+        end
       if @card.blank?
         flash[:alert] = '購入前にクレジットカードの登録をしてください'
         redirect_to creditcards_path
