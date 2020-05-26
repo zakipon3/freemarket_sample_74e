@@ -149,9 +149,20 @@
 }
 
 .new-card {
-  @include mypage-btn;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3ccace;
+  text-align: center;
+  line-height: 50px;
+  width: 400px;
+  height: 50px;
+  cursor: pointer;
+  margin-top: 30px;
 }
-
+.new-card-btn{
+  color: #fff;
+}
 .add_card {
   @include mypage-btn;
   height: 0px;
@@ -252,6 +263,7 @@
       a {
         color: #0099e8;
         text-decoration: none;
+        
       }
       span {
         margin: 0 2px;
