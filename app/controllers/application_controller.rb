@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
   BUYING_STATUS = 2
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def check_user_login
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :birth_year, :birth_month, :birth_day, :email, :password])

@@ -1,5 +1,5 @@
 class MypageController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! , only: [:index, :card, :logout, :new]
 
   def index
     @nickname = current_user.nickname
@@ -10,7 +10,7 @@ class MypageController < ApplicationController
 
   def new
   end
-  
+
   def edit
   end
 

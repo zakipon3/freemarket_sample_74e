@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user! , only: [:new, :edit, :update]
   before_action :set_params, only: :create
   before_action :set_item, only: [:show, :edit, :update, :destroy, :purchase, :pay, :done]
   before_action :authenticate_user!, only:[:purchase, :pay, :done]
@@ -6,6 +7,7 @@ class ItemsController < ApplicationController
   before_action :set_card, only:[:purchase, :pay]
   before_action :set_category
   require "payjp"
+
 
   def index
     @items = Item.all.where(status_id: '1').order(created_at: :desc)
@@ -29,24 +31,37 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    grandchild_category = @item.category
-    child_category = grandchild_category.parent
-    @category = Category.where(ancestry: nil)
-    @category_children_array = Category.where(ancestry: child_category.ancestry)
-    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
+    if @item.seller_id == current_user.id
+      grandchild_category = @item.category
+      child_category = grandchild_category.parent
+      @category = Category.where(ancestry: nil)
+      @category_children_array = Category.where(ancestry: child_category.ancestry)
+      @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
+    else
+      redirect_to root_path
+    end
   end
 
   def update
-    if @item.valid?
-      unless @item.update(set_params)
-        redirect_to edit_item_path, flash: { error: @item.errors.full_messages }
+    if @item.seller_id == current_user.id
+      if @item.valid?
+        unless @item.update(set_params)
+          redirect_to edit_item_path, flash: { error: @item.errors.full_messages }
+        end
+      else
+        redirect_to new_item_path, flash: { error: @item.errors.full_messages }
       end
     else
-      redirect_to new_item_path, flash: { error: @item.errors.full_messages }
+      redirect_to root_path
     end
   end
 
   def show
+    @item_images = @item.images
+    @image = @item_images.first
+    unless @item.status_id == 1
+      redirect_to root_path, notice: "購入済みです"
+    end
   end
 
   def destroy
@@ -119,6 +134,12 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+
+    begin
+      @item = Item.find(params[:id])
+    rescue
+      redirect_to root_path
+    end
   end
 
   def set_card
