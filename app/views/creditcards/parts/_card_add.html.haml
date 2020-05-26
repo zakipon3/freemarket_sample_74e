@@ -19,7 +19,7 @@
         .name
           = f.label :有効期限
           %span.form-require 必須
-        = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]], {}, class: 'input-default harf', name: "exp_year", id:"exp_year"
+        = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]], {}, class: 'input-default harf', name: "exp_year", id:"exp_year"
         %span 年
         = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{}, class: 'input-default harf', name: "exp_month", id:"exp_month"
         %span 月
@@ -31,4 +31,4 @@
         %p.about
           %span
       .form__upper__group
-        = f.submit '次へ進む', class: 'btn-default', id: "charge-form"
+        = f.submit '登録する', class: 'btn-default', id: "charge-form"
