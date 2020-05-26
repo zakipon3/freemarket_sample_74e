@@ -22,7 +22,7 @@
           %li.listsRight__item
             = link_to "ログアウト", destroy_user_session_path, method: :delete
           %li.listsRight__item
-            = link_to "マイページ", mypage_index_path
+            = link_to "マイページ", mypage_index_path(current_user)
         - else
           %li.listsRight__item
             = link_to "ログイン", new_user_session_path

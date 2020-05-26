@@ -17,29 +17,32 @@ Rails.application.routes.draw do
       get "set_images"
       get "detail"
       get "list"
+    end
+
+    member do
       get "purchase"
+      post "pay"
+      patch "done"
     end
   end
-  
-  
-  resources :users, only: [:new, :edit, :show] do
+
+  resources :users, only: [:new, :edit, :show, :update] do
     collection do
       get "touroku"
     end
   end
 
   resources :mypage, only: [:index, :show, :new, :edit, :create] do
-
     collection do
       get "logout"
-    end
-    
-    collection do
       get "card"
     end
   end
 
-
-  resources :users, only: [:edit, :update]
+  resources :creditcards, only:[:index, :new, :create, :destroy, :show] do
+    member do
+      post 'pay'
+    end
+  end
 
 end

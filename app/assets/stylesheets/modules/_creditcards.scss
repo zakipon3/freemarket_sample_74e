@@ -1,0 +1,37 @@
+.mypage-main.col-9 {
+  background-color: white;
+  margin: 0 auto;
+  width: 700px;
+  height: 100%;
+  .mypage-main.col-10 {
+    padding: 30px;
+    text-align: center;
+    .header_title {
+      height: 50px;
+      text-align: center;
+      border-bottom: 1px solid whitesmoke;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .single-container {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .creditcard-section {
+    }
+    .creditcard-info {
+      margin-top: 30px;
+      &__delete {
+        background-color: #3ccace;
+        color: #fff;
+        text-align: center;
+        line-height: 50px;
+        width: 400px;
+        height: 50px;
+        cursor: pointer;
+      }
+    }
+  }
+}
