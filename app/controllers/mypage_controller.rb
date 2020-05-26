@@ -1,4 +1,6 @@
 class MypageController < ApplicationController
+  before_action :authenticate_user! , only: [:index, :card, :logout, :new]
+
   def index
   end
 
@@ -10,7 +12,7 @@ class MypageController < ApplicationController
 
   def new
   end
-  
+
   def edit
   end
 
