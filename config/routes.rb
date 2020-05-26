@@ -17,7 +17,8 @@ Rails.application.routes.draw do
       get "set_images"
       get "detail"
       get "list"
-      
+    end
+
     member do
       get "purchase"
       post "pay"
