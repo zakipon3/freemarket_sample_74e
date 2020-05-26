@@ -46,6 +46,9 @@ class ItemsController < ApplicationController
   def show
     @item_images = @item.images
     @image = @item_images.first
+    unless @item.status_id == 1
+      redirect_to root_path, notice: "購入済みです"
+    end
   end
 
   def destroy
