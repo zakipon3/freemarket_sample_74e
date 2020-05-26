@@ -4,23 +4,14 @@ class CreditcardsController < ApplicationController
   require "payjp"
 
   def index
-    # すでにクレジットカードが登録しているか？
     if @card.present?
-      # 登録している場合,PAY.JPからカード情報を取得する
-      # PAY.JPの秘密鍵をセットする。
       Payjp.api_key = Rails.application.credentials.pay_jp[:payjp_private_key]
-      # PAY.JPから顧客情報を取得する。
       customer = Payjp::Customer.retrieve(@card.customer_id)
-      # PAY.JPの顧客情報から、デフォルトで使うクレジットカードを取得する。
       @card_info = customer.cards.retrieve(customer.default_card)
-      # クレジットカード情報から表示させたい情報を定義する。
-      # クレジットカードの画像を表示するために、カード会社を取得
       @card_brand = @card_info.brand
-      # クレジットカードの有効期限を取得
       @exp_month = @card_info.exp_month.to_s
       @exp_year = @card_info.exp_year.to_s.slice(2,3) 
 
-      # クレジットカード会社を取得したので、カード会社の画像をviewに表示させるため、ファイルを指定する。
       case @card_brand
       when "Visa"
         @card_image = "visa.svg"
@@ -44,24 +35,28 @@ class CreditcardsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = Rails.application.credentials.pay_jp[:payjp_private_key]
-    if params['payjpToken'].blank?
-      render "new"
-    else
-      customer = Payjp::Customer.create(
-        card: params['payjpToken'],
-        metadata: {user_id: current_user.id}
-      )
-      @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      if @card.save
-        if request.referer&.include?("/registrations/step5")
-          redirect_to controller: 'registrations', action: "step6"
-        else
-          redirect_to action: "index", notice:"支払い情報の登録が完了しました"
-        end
+    if @card.valid?
+      Payjp.api_key = Rails.application.credentials.pay_jp[:payjp_private_key]
+      if params['payjpToken'].blank?
+        render "new"
       else
-        render 'new'
+        customer = Payjp::Customer.create(
+          card: params['payjpToken'],
+          metadata: {user_id: current_user.id}
+        )
+        @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+        if @card.save
+          if request.referer&.include?("/registrations/step5")
+            redirect_to controller: 'registrations', action: "step6"
+          else
+            redirect_to action: "index", notice:"支払い情報の登録が完了しました"
+          end
+        else
+          render 'new'
+        end
       end
+    else
+      redirect_to new_creditcards_path, flash: { error: @card.errors.full_messages }
     end
   end
 

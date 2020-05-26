@@ -98,7 +98,6 @@ class ItemsController < ApplicationController
       customer: @card.customer_id,
       currency: 'jpy',
     )
-    # @item.status_id = BUYING_STATUS
     @item.update(buyer_id: current_user.id)
     @item.update(status_id: BUYING_STATUS)
     redirect_to root_path
