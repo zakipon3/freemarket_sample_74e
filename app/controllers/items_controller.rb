@@ -81,7 +81,7 @@ class ItemsController < ApplicationController
     else
       if @card.blank?
         flash[:alert] = '購入前にクレジットカードの登録をしてください'
-        redirect_to card_mypage_index_path
+        redirect_to creditcards_path
       else
         @address = Address.where(user_id: current_user.id).first
         Payjp.api_key = Rails.application.credentials.pay_jp[:payjp_private_key]
