@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
   before_action :set_params, only: :create
   before_action :set_item, only: [:show, :edit, :update, :destroy, :purchase, :pay, :done]
-  before_action :authenticate_user!, only:[:purchase]
+  before_action :authenticate_user!, only:[:purchase, :pay, :done]
+  before_action :set_images, only:[:show, :purchase, :pay]
+  before_action :set_card, only:[:purchase, :pay]
   before_action :set_category
   require "payjp"
 
@@ -29,7 +31,6 @@ class ItemsController < ApplicationController
   def edit
     grandchild_category = @item.category
     child_category = grandchild_category.parent
-
     @category = Category.where(ancestry: nil)
     @category_children_array = Category.where(ancestry: child_category.ancestry)
     @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
@@ -46,8 +47,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item_images = @item.images
-    @image = @item_images.first
   end
 
   def destroy
@@ -77,7 +76,6 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @card = Creditcard.find_by(user_id: current_user.id)
     if @item.seller_id == current_user.id
       redirect_to root_path
     else
@@ -85,8 +83,6 @@ class ItemsController < ApplicationController
         flash[:alert] = '購入前にクレジットカードの登録をしてください'
         redirect_to card_mypage_index_path
       else
-        @item_images = @item.images
-        @image = @item_images.first
         @address = Address.where(user_id: current_user.id).first
         Payjp.api_key = Rails.application.credentials.pay_jp[:payjp_private_key]
         customer = Payjp::Customer.retrieve(@card.customer_id) 
@@ -95,25 +91,22 @@ class ItemsController < ApplicationController
     end
   end
 
-  def done
-    
-  end
-
   def pay
-    @card = Creditcard.find_by(user_id: current_user.id)
-    @item_images = @item.images
-    @image = @item_images.first
     Payjp.api_key = Rails.application.credentials.pay_jp[:payjp_private_key]
     Payjp::Charge.create(
-      amount: @item.price, #支払金額を引っ張ってくる
-      customer: @card.customer_id,  #顧客ID
-      currency: 'jpy',              #日本円
+      amount: @item.price,
+      customer: @card.customer_id,
+      currency: 'jpy',
     )
-    redirect_to done_item_path
+    # @item.status_id = BUYING_STATUS
+    @item.update(buyer_id: current_user.id)
+    @item.update(status_id: BUYING_STATUS)
+    redirect_to root_path
     end
 
   def set_images
-    @images = Image.where(item_id: params[:id])
+    @item_images = @item.images
+    @image = @item_images.first
   end
 
   def set_category
@@ -126,8 +119,11 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    # binding.pry
     @item = Item.find(params[:id])
+  end
+
+  def set_card
+    @card = Creditcard.find_by(user_id: current_user.id)
   end
 
 end

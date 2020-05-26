@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     member do
       get "purchase"
       post "pay"
-      get "done"
+      patch "done"
     end
   end
 
