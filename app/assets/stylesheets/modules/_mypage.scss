@@ -160,7 +160,7 @@
   cursor: pointer;
   margin-top: 30px;
 }
-.new-card-btn{
+.new-card-btn {
   color: #fff;
 }
 .add_card {
@@ -190,11 +190,8 @@
       label {
         font-weight: 600;
       }
-      ol {
-        display: flex;
-        li {
-          margin: 5px 8px 0 0;
-        }
+      .card_list {
+        margin-top: 10px;
       }
       .form-require {
         background-color: $basic-color;
@@ -263,7 +260,6 @@
       a {
         color: #0099e8;
         text-decoration: none;
-        
       }
       span {
         margin: 0 2px;

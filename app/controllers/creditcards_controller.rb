@@ -35,28 +35,24 @@ class CreditcardsController < ApplicationController
   end
 
   def create
-    if @card.valid?
-      Payjp.api_key = Rails.application.credentials.pay_jp[:payjp_private_key]
-      if params['payjpToken'].blank?
-        render "new"
-      else
-        customer = Payjp::Customer.create(
-          card: params['payjpToken'],
-          metadata: {user_id: current_user.id}
-        )
-        @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-        if @card.save
-          if request.referer&.include?("/registrations/step5")
-            redirect_to controller: 'registrations', action: "step6"
-          else
-            redirect_to action: "index", notice:"支払い情報の登録が完了しました"
-          end
-        else
-          render 'new'
-        end
-      end
+    Payjp.api_key = Rails.application.credentials.pay_jp[:payjp_private_key]
+    if params['payjpToken'].blank?
+      render "new"
     else
-      redirect_to new_creditcards_path, flash: { error: @card.errors.full_messages }
+      customer = Payjp::Customer.create(
+        card: params['payjpToken'],
+        metadata: {user_id: current_user.id}
+      )
+      @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @card.save
+        if request.referer&.include?("/registrations/step5")
+          redirect_to controller: 'registrations', action: "step6"
+        else
+          redirect_to action: "index", notice:"支払い情報の登録が完了しました"
+        end
+      else
+        render 'new'
+      end
     end
   end
 

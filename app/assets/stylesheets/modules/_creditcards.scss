@@ -1,32 +1,29 @@
-.mypage-main.col-9{
+.mypage-main.col-9 {
   background-color: white;
   margin: 0 auto;
   width: 700px;
-    height: 100%;
-  .mypage-main.col-10{
+  height: 100%;
+  .mypage-main.col-10 {
     padding: 30px;
     text-align: center;
-    .header_title{
+    .header_title {
       height: 50px;
       text-align: center;
       border-bottom: 1px solid whitesmoke;
       font-weight: bold;
       font-size: 18px;
     }
-    .single-container{
+    .single-container {
       padding: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .creditcard-section{
-
+    .creditcard-section {
     }
-    .creditcard-info{
+    .creditcard-info {
       margin-top: 30px;
-
-
-      &__delete{
+      &__delete {
         background-color: #3ccace;
         color: #fff;
         text-align: center;
@@ -36,7 +33,5 @@
         cursor: pointer;
       }
     }
-    
   }
 }
-
