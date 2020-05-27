@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_params, only: :create
   before_action :set_item, only: [:show, :edit, :update, :destroy, :purchase, :pay, :done]
   before_action :authenticate_user!, only:[:purchase, :pay, :done]
-  before_action :set_images, only:[:show, :purchase, :pay]
+  before_action :set_image, only:[:show, :purchase, :pay]
   before_action :set_card, only:[:purchase, :pay]
   before_action :set_category
   require "payjp"
@@ -34,6 +34,7 @@ class ItemsController < ApplicationController
     if @item.seller_id == current_user.id
       grandchild_category = @item.category
       child_category = grandchild_category.parent
+
       @category = Category.where(ancestry: nil)
       @category_children_array = Category.where(ancestry: child_category.ancestry)
       @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
@@ -121,6 +122,10 @@ class ItemsController < ApplicationController
     end
 
   def set_images
+    @images = Image.where(item_id: params[:id])
+  end
+
+  def set_image
     @item_images = @item.images
     @image = @item_images.first
   end
